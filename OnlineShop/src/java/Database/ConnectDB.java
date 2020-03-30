@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Database;
+
 import Data.User;
 import java.sql.*;
 import java.util.logging.Level;
