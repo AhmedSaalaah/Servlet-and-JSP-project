@@ -7,8 +7,7 @@ package Database;
 
 import Data.User;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -40,6 +39,20 @@ public class ConnectDB {
         pst =con.prepareStatement(sql);
         pst.setString(1, usr.username);
         pst.setString(2, usr.pass);
+        rs=pst.executeQuery();
+        if(rs.next()){
+                return true;
+            }
+         
+        return false;
+            
+    }
+    
+    public Boolean isadmin(User usr) throws SQLException{
+        String sql = "select * from users where isadmin = true";
+        pst =con.prepareStatement(sql);
+        pst.setBoolean(1, usr.isadmin);
+        
         rs=pst.executeQuery();
         if(rs.next()){
                 return true;
