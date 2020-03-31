@@ -8,17 +8,16 @@ package Database;
 import Data.User;
 import java.sql.*;
 
-
 /**
  *
  * @author ahmed
  */
 public class ConnectDB {
-    
+
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
-    
+
     public Connection connect() throws ClassNotFoundException {
 
         try {
@@ -33,39 +32,47 @@ public class ConnectDB {
         return con;
 
     }
-    
-    public Boolean checkLogin(User usr) throws SQLException{
+
+    public Boolean checkLogin(User usr) throws SQLException, ClassNotFoundException {
+        connect();
         String sql = "select * from users where username = ? and password = ?";
-        pst =con.prepareStatement(sql);
+
+        pst = con.prepareStatement(sql);
         pst.setString(1, usr.username);
         pst.setString(2, usr.pass);
-        rs=pst.executeQuery();
-        if(rs.next()){
-                return true;
-            }
-         
+        rs = pst.executeQuery();
+        if (rs.next()) {
+
+            return true;
+        }
+
         return false;
-            
+
     }
-    
-    public Boolean isadmin(User usr) throws SQLException{
-        String sql = "select * from users where isadmin = true";
-        pst =con.prepareStatement(sql);
-        pst.setBoolean(1, usr.isadmin);
+
+    public Boolean isadmin(User usr) throws SQLException, ClassNotFoundException {
+        connect();
+        String sql = "select * from users where username = ? and is_admin = true";
         
-        rs=pst.executeQuery();
-        if(rs.next()){
-                return true;
-            }
-         
+        pst = con.prepareStatement(sql);
+        pst.setString(1, usr.username);
+        rs = pst.executeQuery();
+        if (rs.next()) {
+           
+            return true;
+        }
+
         return false;
-            
+
     }
-    
-    
-    
-    public static void main(String[] args) throws ClassNotFoundException {
-        
+
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+//        ConnectDB c = new ConnectDB();
+//        c.connect();
+//        User u = new User();
+//        u.username = "admin";
+//        u.pass = "admin";
+//        c.checkLogin(u);
     }
-    
+
 }

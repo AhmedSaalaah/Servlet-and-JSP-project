@@ -17,5 +17,20 @@ public class User {
     public String email;
     public boolean isadmin;
     public int credit_limit;
+
+    public User(int id, String username, String pass, String email, boolean isadmin, int credit_limit) {
+        this.id = id;
+        this.username = username;
+        this.pass = pass;
+        this.email = email;
+        this.isadmin = isadmin;
+        this.credit_limit = credit_limit;
+    }
+
+    public User() {
+       
+    }
+    
+    
     
 }
