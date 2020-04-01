@@ -31,12 +31,12 @@ public class Register extends HttpServlet {
 
         try {
             PrintWriter out = resp.getWriter();
-            usr.username = req.getParameter("username");
-            usr.pass = req.getParameter("pass");
-            usr.email = req.getParameter("email");
-            usr.credit_limit = Integer.parseInt(req.getParameter("credit"));
+           String username = usr.username = req.getParameter("username");
+           String pass=  usr.pass = req.getParameter("pass");
+            String email =usr.email = req.getParameter("email");
+           int credit= usr.credit_limit = Integer.parseInt(req.getParameter("credit"));
 
-            if (conn.registerUser(usr) ==1) {
+            if (conn.registerUser(usr) ==1 &&username!=null) {
 
                 resp.sendRedirect("Login.html");
             } else {
