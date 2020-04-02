@@ -7,6 +7,9 @@ package Database;
 
 import Data.User;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 /**
  *
@@ -67,10 +70,40 @@ public class ConnectDB {
         pst.setString(2, usr.pass);
         pst.setString(3, usr.email);
         pst.setInt(4, usr.credit_limit);
-         int rs = pst.executeUpdate();
+        int rs = pst.executeUpdate();
         System.out.println(rs);
-       
+
         return rs;
+    }
+
+    public List<User> getAllUsers() throws ClassNotFoundException, SQLException {
+        connect();
+        String sql = "select * from users where is_admin is null";
+        List<User> users = new ArrayList<User>();
+        pst = con.prepareStatement(sql);
+        rs = pst.executeQuery();
+        while (rs.next()) {
+            users.add(new User(rs.getInt("user_id"), 
+                    rs.getString("username"),
+                    rs.getString("password"),
+                    rs.getString("email"),
+                    rs.getInt("credit_limit")));
+        }
+
+        return users;
+
+    }
+
+    public void deleteUser(int userId) {
+        try {
+            PreparedStatement preparedStatement = con
+                    .prepareStatement("delete from users where user_id=?");
+            preparedStatement.setInt(1, userId);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
@@ -81,7 +114,11 @@ public class ConnectDB {
         u.pass = "admin";
         u.email = "admin";
         u.credit_limit = 1000;
-        c.registerUser(u);
+        List<User> list =c.getAllUsers();
+        for(User q : list){
+            System.out.println(q.username);
+        }
+// 
     }
 
 }
