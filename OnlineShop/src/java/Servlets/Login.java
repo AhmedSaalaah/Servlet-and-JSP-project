@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
             if (conn.checkLogin(usr)) {
                 if (conn.isadmin(usr)) {
                   
-                    out.print("admin");
+                    resp.sendRedirect("indexusers.jsp");
                     
                 } else {
                     out.print("user");

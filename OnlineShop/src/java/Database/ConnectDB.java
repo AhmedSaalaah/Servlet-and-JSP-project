@@ -5,6 +5,7 @@
  */
 package Database;
 
+import Data.Product;
 import Data.User;
 import java.sql.*;
 import java.util.ArrayList;
@@ -83,7 +84,7 @@ public class ConnectDB {
         pst = con.prepareStatement(sql);
         rs = pst.executeQuery();
         while (rs.next()) {
-            users.add(new User(rs.getInt("user_id"), 
+            users.add(new User(rs.getInt("user_id"),
                     rs.getString("username"),
                     rs.getString("password"),
                     rs.getString("email"),
@@ -96,16 +97,60 @@ public class ConnectDB {
 
     public void deleteUser(int userId) {
         try {
-            PreparedStatement preparedStatement = con
-                    .prepareStatement("delete from users where user_id=?");
-            preparedStatement.setInt(1, userId);
-            preparedStatement.executeUpdate();
+            pst = con.prepareStatement("delete from users where user_id=?");
+            pst.setInt(1, userId);
+            pst.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    public void addProduct(Product pro) throws ClassNotFoundException, SQLException {
+        connect();
+        String sql = "insert into products (product_name,price,category,description,quantity)"
+                + "values (?,?,?,?,?)";
+        pst = con.prepareStatement(sql);
+        pst.setString(1, pro.pname);
+        pst.setInt(2, pro.price);
+        pst.setString(3, pro.category);
+        pst.setString(4, pro.description);
+        pst.setInt(5,pro.quantity);
+        pst.executeUpdate();
+
+    }
+      public List<Product> getAllProducts() throws ClassNotFoundException, SQLException {
+        connect();
+        String sql = "select * from products";
+        List<Product> products = new ArrayList<Product>();
+        pst = con.prepareStatement(sql);
+        rs = pst.executeQuery();
+        while (rs.next()) {
+            products.add(new Product(rs.getInt("product_id"),
+                    rs.getString("product_name"),
+                    rs.getInt("price"),
+                    rs.getString("category"),
+                    rs.getString("description"),
+                    rs.getInt("quantity")));
+        }
+
+        return products;
+
+    }
+      
+    public void updateProduct(Product pro) throws ClassNotFoundException, SQLException{
+        connect();
+        String sql = "update products set product_name=? , price =? ,category=?,decription=?,quantity=? ";
+        pst= con.prepareStatement(sql);
+        pst.setString(1, pro.pname);
+        pst.setInt(0, pro.price);
+        pst.setString(0, pro.category);
+        pst.setString(0, pro.description);
+        pst.setInt(0, pro.quantity);
+        pst.executeQuery();
+    }  
+
+    
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ConnectDB c = new ConnectDB();
         c.connect();
@@ -114,11 +159,13 @@ public class ConnectDB {
         u.pass = "admin";
         u.email = "admin";
         u.credit_limit = 1000;
-        List<User> list =c.getAllUsers();
-        for(User q : list){
+        List<User> list = c.getAllUsers();
+        for (User q : list) {
             System.out.println(q.username);
         }
-// 
+          List<Product> pro = c.getAllProducts();
+        for (Product w : pro) {
+            System.out.println(w.pname+""+w.p_id);
+        }
     }
-
 }
