@@ -52,7 +52,7 @@ public class Database2 {
         Vector<String[]> users = new Vector();
         try {
             connect();
-            SQLcommand = "Select * from products3";
+            SQLcommand = "Select * from products2";
             s = connection.createStatement();
             rs = s.executeQuery(SQLcommand);
             while (rs.next()) {
@@ -77,7 +77,7 @@ public class Database2 {
         Vector<String[]> mobiles = new Vector();
         try {
             connect();
-            SQLcommand = "Select * from products3 where cid=1";
+            SQLcommand = "Select * from products2 where category='mobiles'";
             s = connection.createStatement();
             rs = s.executeQuery(SQLcommand);
             while (rs.next()) {
@@ -102,7 +102,7 @@ public class Database2 {
         Vector<String[]> laptops = new Vector();
         try {
             connect();
-            SQLcommand = "Select * from products3 where cid=2";
+            SQLcommand = "Select * from products2 where category='laptops'";
             s = connection.createStatement();
             rs = s.executeQuery(SQLcommand);
             while (rs.next()) {
@@ -124,15 +124,15 @@ public class Database2 {
     }
      
      
-    public int insert_product(String name, int price, int cid,String image,String desc,int quantity) {
+    public int insert_product(String name, int price, String category,String image,String desc,int quantity) {
 
         try {
             connect();
-            SQLcommand = "insert into products3 (product_name,price,cid,image,description,quantity) values (?,?,?,?,?,?)";
+            SQLcommand = "insert into products2 (product_name,price,category,image,description,quantity) values (?,?,?,?,?,?)";
             ps = connection.prepareStatement(SQLcommand);
             ps.setString(1, name);
             ps.setInt(2, price);
-            ps.setInt(3,cid);
+            ps.setString(3,category);
             ps.setString(4, image);
             ps.setString(5,desc);
             ps.setInt(6,quantity);
