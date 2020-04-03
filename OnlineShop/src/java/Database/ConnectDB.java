@@ -111,15 +111,16 @@ public class ConnectDB {
         String sql = "insert into products (product_name,price,category,description,quantity)"
                 + "values (?,?,?,?,?)";
         pst = con.prepareStatement(sql);
-        pst.setString(1, pro.pname);
+        pst.setString(1, pro.p_name);
         pst.setInt(2, pro.price);
         pst.setString(3, pro.category);
         pst.setString(4, pro.description);
-        pst.setInt(5,pro.quantity);
+        pst.setInt(5, pro.quantity);
         pst.executeUpdate();
 
     }
-      public List<Product> getAllProducts() throws ClassNotFoundException, SQLException {
+
+    public List<Product> getAllProducts() throws ClassNotFoundException, SQLException {
         connect();
         String sql = "select * from products";
         List<Product> products = new ArrayList<Product>();
@@ -137,35 +138,78 @@ public class ConnectDB {
         return products;
 
     }
-      
-    public void updateProduct(Product pro) throws ClassNotFoundException, SQLException{
-        connect();
-        String sql = "update products set product_name=? , price =? ,category=?,decription=?,quantity=? ";
-        pst= con.prepareStatement(sql);
-        pst.setString(1, pro.pname);
-        pst.setInt(0, pro.price);
-        pst.setString(0, pro.category);
-        pst.setString(0, pro.description);
-        pst.setInt(0, pro.quantity);
-        pst.executeQuery();
-    }  
 
+    public void updateProduct(Product pro) throws ClassNotFoundException, SQLException {
+        connect();
+        String sql = "update products set product_name=? , price =? ,category=?,description=?,quantity=? where product_id=?";
+        pst = con.prepareStatement(sql);
+        pst.setString(1, pro.p_name);
+        pst.setInt(2, pro.price);
+        pst.setString(3, pro.category);
+        pst.setString(4, pro.description);
+        pst.setInt(5, pro.quantity);
+        pst.setInt(6, pro.p_id);
+        pst.executeUpdate();
+    }
+
+    public void deleteProduct(int productid) {
+        try {
+            pst = con.prepareStatement("delete from products where product_id=?");
+            pst.setInt(1, productid);
+            pst.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Product getProductbyid(int productid) throws ClassNotFoundException, SQLException {
+        connect();
+        Product pro = new Product();
+        String sql = "select * from products where product_id =?";
+        pst = con.prepareStatement(sql);
+        pst.setInt(1, productid);
+        rs = pst.executeQuery();
+        if (rs.next()) {
+            pro.p_id =rs.getInt("product_id");
+            pro.p_name=(rs.getString("product_name"));
+            pro.price=(rs.getInt("price"));
+            pro.category=(rs.getString("category"));
+            pro.image=(rs.getString("image"));
+            pro.description=(rs.getString("description"));
+            pro.quantity =rs.getInt("quantity");
+
+        }
     
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+  
+
+    return pro ;
+
+}
+
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ConnectDB c = new ConnectDB();
         c.connect();
-        User u = new User();
-        u.username = "admin";
-        u.pass = "admin";
-        u.email = "admin";
-        u.credit_limit = 1000;
-        List<User> list = c.getAllUsers();
-        for (User q : list) {
-            System.out.println(q.username);
-        }
-          List<Product> pro = c.getAllProducts();
-        for (Product w : pro) {
-            System.out.println(w.pname+""+w.p_id);
-        }
+//        User u = new User();
+//        u.username = "admin";
+//        u.pass = "admin";
+//        u.email = "admin";
+//        u.credit_limit = 1000;
+//        List<User> list = c.getAllUsers();
+//        for (User q : list) {
+//            System.out.println(q.username);
+//        }
+//          List<Product> pro = c.getAllProducts();
+//        for (Product w : pro) {
+//            System.out.println(w.pname+""+w.p_id);
+//        }
+        
+       Product p= new Product();
+       p=c.getProductbyid(7);
+       p.p_name ="sam";
+       c.updateProduct(p);
+       
+       
+        
     }
 }
