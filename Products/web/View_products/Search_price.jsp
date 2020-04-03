@@ -34,11 +34,11 @@
             int i;
             String image;
 
-            String n = request.getParameter("Name");
-           
-            db.SQLcommand = "Select * from products3 where product_name LIKE ?";
+            String n = request.getParameter("rangeInput");
+             int z = Integer.parseInt(n);         
+            db.SQLcommand = "Select * from products3 where price <= ?";
             db.ps = db.connection.prepareStatement(db.SQLcommand);
-            db.ps.setString(1, "%" + n + "%");
+            db.ps.setInt(1,z);
             db.rs = db.ps.executeQuery();
             %>
            
