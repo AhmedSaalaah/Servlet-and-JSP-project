@@ -15,21 +15,21 @@
     
 
     <form method="POST" action='ProductController' >
-          <input type="text" readonly="readonly" name="productId"  hidden
-            value="<c:out value="${product.p_id}" />" /> <br /> 
-        Product name : <input type="text"  name="p_name"
+          <input  type="text" readonly="readonly" name="productId"  hidden
+            value="<c:out value="${product.p_id}" />" /> <br  /> 
+        Product name : <input type="text"  name="p_name"  required name="username"
             value="<c:out value="${product.p_name}" />" /> <br /> 
-        price: <input
-            type="number" name="price" 
+        price: <input required name="usernae"
+            type="number" name="price"  
             value="<c:out value="${product.price}" />" /> <br /> 
         category : <input
-            type="text" name="category"
+            type="text" name="category" required name="usename"
             value="<c:out value="${product.category}" />" /> <br /> 
         
-       description: <input type="text" name="description"
+       description: <input type="text" name="description" required name="usrname"
             value="<c:out value="${product.description}" />" /> <br />
        
-       quantity <input type="number" name="quantity"
+       quantity <input type="number" name="quantity"required name="ername"
             value="<c:out value="${product.quantity}" />" /> <br />
         <input
             type="submit" value="Submit" />
