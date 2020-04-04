@@ -16,6 +16,7 @@ import Data.*;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -25,6 +26,7 @@ public class Login extends HttpServlet {
 
     ConnectDB conn = new ConnectDB();
     User usr = new User();
+    HttpSession session;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,16 +38,17 @@ public class Login extends HttpServlet {
             
             if (conn.checkLogin(usr)) {
                 if (conn.isadmin(usr)) {
-                    
-                    out.print("admin");
+                  
+                    resp.sendRedirect("indexusers.jsp");
                     
                 } else {
                     out.print("user");
+                   
                     resp.sendRedirect("index.html");
                 }
 
             } else {
-
+                
                 out.print("username doesnot match");
             }
             } catch (SQLException | ClassNotFoundException ex) {
