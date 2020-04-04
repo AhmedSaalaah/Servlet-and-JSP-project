@@ -7,7 +7,7 @@ import java.util.Vector;
 import DataBase.Database2;
 import DataBase.Insert;
 
-public final class View_005flaptops_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class View_005fmobiles_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -52,26 +52,34 @@ public final class View_005flaptops_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title> Laptops </title>\n");
-      out.write("        <link rel=\"stylesheet\" href=\"try.css\">\n");
+      out.write("        <title> Mobiles </title>\n");
+      out.write("          <link rel=\"stylesheet\" href=\"try.css\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        \n");
       out.write("        \n");
-      out.write("\n");
-      out.write("        <header>\n");
+      out.write("           <header>\n");
       out.write("            <div style=\"background-color: lightgray; height: 30%; padding-top: 2%;padding-bottom: 2%\"> \n");
       out.write("                <a href=\"HOme_trial.jsp\" style=\"color: white ; font-size: 25px\"> Home </a>\n");
       out.write("                &nbsp; &nbsp; &nbsp;<a href=\"View_products.jsp\"style=\"font-size: 25px; color: white\"> Products </a>\n");
       out.write("\n");
       out.write("            </div>\n");
       out.write("        </header>\n");
+      out.write("           <br>\n");
+      out.write("        \n");
+      out.write("         ");
+
+                    Database2 db = new Database2();
+                    Vector<String[]> mobiles = new Vector();
+                    mobiles = db.view_Mobiles();
+                    int i;
+                    String image;
       out.write("\n");
-      out.write("        <br>\n");
-      out.write("        <div style=\"background-color: lightblue; display: inline-block;width: 15%; height: 50% ; padding: 1% 1% 1% 1%\">\n");
+      out.write("                           <div style=\"background-color: lightblue; display: inline-block;width: 15%; height: 50% ; padding: 1% 1% 1% 1%\">\n");
       out.write("\n");
-      out.write("            <form action=\"laptop_price.jsp\" method=\"GET\">\n");
-      out.write("\n");
+      out.write("         \n");
+      out.write("               \n");
+      out.write("                 <form action=\"Mobile_price.jsp\" method=\"GET\">\n");
       out.write("                <label style=\"color: white ; font-size: 25px\"> Select price range </label> <br>\n");
       out.write("\n");
       out.write("                <input type=\"range\" id=\"rangeInput\" name=\"rangeInput\" min=\"0\" max=\"20000\" value=\"0\"\n");
@@ -79,50 +87,47 @@ public final class View_005flaptops_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\n");
       out.write("                <output id=\"amount\" name=\"amount\" for=\"rangeInput\" style=\"color: white\"> 0 </output> \n");
       out.write("                <input type =\"submit\" value=\"Search\"></form>\n");
+      out.write("                \n");
+      out.write("                <br>\n");
+      out.write("                <br>\n");
+      out.write("                <form action=\"Search_name.jsp\" method=\"GET\">\n");
+      out.write("                    Search By Name: <input type=\"text\" name=\"Name\">\n");
+      out.write("                    <input type =\"submit\" value=\"Search\"></form>\n");
+      out.write("                <br>\n");
+      out.write("                <br>\n");
+      out.write("                <br>\n");
+      out.write("                <br>\n");
       out.write("\n");
-      out.write("            <br>\n");
-      out.write("            <br>\n");
-      out.write("            <form action=\"Search_name.jsp\" method=\"GET\">\n");
-      out.write("                Search By Name: <input type=\"text\" name=\"Name\">\n");
-      out.write("                <input type =\"submit\" value=\"Search\"></form>\n");
-      out.write("            <br>\n");
-      out.write("            <br>\n");
-      out.write("            <br>\n");
-      out.write("            <br>\n");
-      out.write("        </div>\n");
-      out.write("            ");
-
-                Database2 db = new Database2();
-                Vector<String[]> laptops = new Vector();
-                laptops = db.view_Laptops();
-                int i;
-            String image;
-
-            for (i = 0; i < laptops.size(); i++) {
-      out.write("\n");
-      out.write("\n");
-      out.write("            <div id=\"userproduct\">\n");
-      out.write("\n");
-      out.write("                ");
- image = laptops.elementAt(i)[0];
-      out.write("\n");
-      out.write("                <a href=\"Product_Desc.jsp?name=");
-out.println(laptops.elementAt(i)[1]);
-      out.write("\" target=\"_blank\">\n");
-      out.write("\n");
-      out.write("                    <img id=\"productpic\" src= \"");
- out.println(laptops.elementAt(i)[0]); 
-      out.write("\">\n");
-      out.write("                    <p id=\"productname\"> ");
- out.println(laptops.elementAt(i)[1]); 
-      out.write(" </p>\n");
-      out.write("                    <p id=\"productprice\"> ");
- out.println(laptops.elementAt(i)[2]); 
-      out.write(" </p></a>\n");
-      out.write("                <input type=\"button\" value=\"Add to cart\" id=\"productbutton1\">\n");
       out.write("            </div>\n");
-      out.write("            ");
- }
+      out.write("                   \n");
+      out.write("                    ");
+ for (i = 0; i < mobiles.size(); i++) {
+      out.write("\n");
+      out.write("                    \n");
+      out.write("                    <div id=\"userproduct\">\n");
+      out.write("                        \n");
+      out.write("                        ");
+ image=mobiles.elementAt(i)[0];
+      out.write("\n");
+      out.write("                        <a href=\"Product_Desc.jsp?name=");
+out.println(mobiles.elementAt(i)[1]);
+      out.write("\" target=\"_blank\">\n");
+      out.write("                        <img id=\"productpic\" src= \"");
+ out.println(mobiles.elementAt(i)[0]); 
+      out.write("\">\n");
+      out.write("                        <p id=\"productname\"> ");
+ out.println(mobiles.elementAt(i)[1]); 
+      out.write(" </p>\n");
+      out.write("                        <p id=\"productprice\"> ");
+ out.println(mobiles.elementAt(i)[2]); 
+      out.write(" </p>\n");
+      out.write("                        </a>\n");
+      out.write("                        <input type=\"button\" value=\"Add to cart\" id=\"productbutton1\">\n");
+      out.write("                        \n");
+      out.write("                        \n");
+      out.write("                    </div> \n");
+      out.write("                        ");
+ } 
       out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");

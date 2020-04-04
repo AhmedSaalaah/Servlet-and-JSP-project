@@ -23,6 +23,7 @@
 
             </div>
         </header>
+           <br>
         
          <%
                     Database2 db = new Database2();
@@ -30,7 +31,27 @@
                     mobiles = db.view_Mobiles();
                     int i;
                     String image;%>
-                   
+                           <div style="background-color: lightblue; display: inline-block;width: 15%; height: 50% ; padding: 1% 1% 1% 1%">
+
+         
+               
+                 <form action="Mobile_price.jsp" method="GET">
+                <label style="color: white ; font-size: 25px"> Select Max. price range </label> <br>
+
+                <input type="range" id="rangeInput" name="rangeInput" min="0" max="20000" value="0"
+                       oninput="amount.value=rangeInput.value" formaction="Mobile_price.jsp">                                                       
+
+                <output id="amount" name="amount" for="rangeInput" style="color: white"> 0 </output> 
+                <input type ="submit" value="Search"></form>
+                
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+            </div>
                    
                     <% for (i = 0; i < mobiles.size(); i++) {%>
                     

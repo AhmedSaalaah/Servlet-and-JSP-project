@@ -36,7 +36,7 @@
 
             String n = request.getParameter("rangeInput");
              int z = Integer.parseInt(n);         
-            db.SQLcommand = "Select * from products3 where price <= ?";
+            db.SQLcommand = "Select * from products2 where price <= ?";
             db.ps = db.connection.prepareStatement(db.SQLcommand);
             db.ps.setInt(1,z);
             db.rs = db.ps.executeQuery();
