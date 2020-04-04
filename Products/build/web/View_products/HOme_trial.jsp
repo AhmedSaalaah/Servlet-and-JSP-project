@@ -35,7 +35,7 @@
                 <form action="Search_price.jsp" method="GET">
                    
                     
-                <label style="color: white ; font-size: 25px"> Select price range </label> <br>
+                <label style="color: white ; font-size: 25px"> Select Max. price range </label> <br>
 
                 <input type="range" id="rangeInput" name="rangeInput" min="0" max="20000" value="0"
                        oninput="amount.value=rangeInput.value" formaction="View_products.jsp?price=rangeInput.value">                                                       

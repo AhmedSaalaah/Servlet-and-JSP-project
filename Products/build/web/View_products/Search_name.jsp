@@ -36,7 +36,7 @@
 
             String n = request.getParameter("Name");
            
-            db.SQLcommand = "Select * from products3 where product_name LIKE ?";
+            db.SQLcommand = "Select * from products2 where product_name LIKE ?";
             db.ps = db.connection.prepareStatement(db.SQLcommand);
             db.ps.setString(1, "%" + n + "%");
             db.rs = db.ps.executeQuery();

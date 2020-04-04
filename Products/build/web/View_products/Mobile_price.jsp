@@ -14,10 +14,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-        <link rel="stylesheet" href="desc.css">
+        <link rel="stylesheet" href="try.css">
     </head>
     <body>
-
+        
+        
            <header>
             <div style="background-color: lightgray; height: 30%; padding-top: 2%;padding-bottom: 2%"> 
                 <a href="HOme_trial.jsp" style="color: white ; font-size: 25px"> Home </a>
@@ -25,7 +26,7 @@
 
             </div>
         </header>
-        
+
         <%
             Database2 db = new Database2();
             db.connect();
@@ -33,25 +34,28 @@
             int i;
             String image;
 
-            String n = request.getParameter("name");
-           
-            db.SQLcommand = "Select * from products2 where product_name=?";
+            String n = request.getParameter("rangeInput");
+             int z = Integer.parseInt(n);         
+            db.SQLcommand = "Select * from products2 where category='mobiles' AND price <= ?";
             db.ps = db.connection.prepareStatement(db.SQLcommand);
-            db.ps.setString(1, n);
+            db.ps.setInt(1,z);
             db.rs = db.ps.executeQuery();
+            %>
+           
+            <%
             while (db.rs.next()) { %>
-            <div>
-        <img src="<% out.println(db.rs.getString("image"));%>">
-        <h2 id="pname"> <% out.println(db.rs.getString("product_name")); %></h2>
-        <h2 id="pprice"> Price: <% out.println(db.rs.getString("price")); %></h2>
-        <h2 id="pdesc"> <% out.println(db.rs.getString("description")); %></h2>  
-        <input type="button" value="Add to cart" id="button">
+            <div id="userproduct">
+                 <a href="Product_Desc.jsp?name=<% out.println(db.rs.getString("product_name")); %>" target="_blank">
+        <img src="<% out.println(db.rs.getString("image"));%>" id="productpic">
+        <p id="productname"> <% out.println(db.rs.getString("product_name")); %></p>
+        <p id="productprice"> Price: <% out.println(db.rs.getString("price")); %></p> </a>
+        <input type="button" value="Add to cart" id="productbutton1">
          </div>
 
         <%
             }
         %>
-
+       
 
 
 
