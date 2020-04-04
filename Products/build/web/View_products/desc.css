@@ -1,0 +1,43 @@
+
+
+img{
+
+    margin-left: 41%;
+}
+
+#pprice{
+    text-align: center;
+}
+
+#pname{
+    text-align: center;
+}
+
+#pdesc{
+
+    text-align: center;
+}
+
+
+#button{
+
+    margin-right: 54%;
+    margin-left: 42%;
+    width: 140px;
+    background-color: crimson;
+    border-color: crimson;
+    border-radius: 12px;
+    font-size: large;
+}
+
+#pdiv{
+
+    margin: 1% 1% 1% 1%;
+    align-items: center;
+    display: inline-block;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: solid;
+    border-color: black;
+
+}

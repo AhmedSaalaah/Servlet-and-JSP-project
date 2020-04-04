@@ -1,0 +1,51 @@
+#productpic{
+    width:50%;
+    height:20%;
+    align-self: center;
+    margin-right: 54%;
+    margin-left: 23%;
+}
+
+#userproduct{
+
+    margin: 1% 1% 1% 1%;
+    align-items: center;
+    display: inline-block;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: solid;
+    border-color: black;
+  
+}
+
+#productname{
+    text-align: center;
+}
+
+#productprice{
+    text-align: center;
+}
+
+#productbutton1{
+    
+    margin-right: 54%;
+    margin-left: 12%;
+    width: 120px;
+    background-color: blue;
+    border-color: blue;
+    border-radius: 12px;
+}
+
+#productbutton2{
+    
+    margin-right: 60%;
+    margin-left: 12%;
+    width: 120px;
+    background-color: blue;
+    border-color: blue;
+    border-radius: 12px;
+}
+
+a{
+    text-decoration: none;
+}
