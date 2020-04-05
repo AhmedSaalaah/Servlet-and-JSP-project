@@ -6,7 +6,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
         <title>Insert title here</title>
     </head>
-
+ 
+  
     <body>
         <jsp:forward page="/ProductController?action=listProduct" />
     </body>

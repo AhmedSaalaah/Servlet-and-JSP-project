@@ -83,6 +83,7 @@ public class ProductController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            
             Product product = new Product();
             product.p_name = (request.getParameter("p_name"));
             product.price = Integer.parseInt(request.getParameter("price"));
@@ -102,10 +103,13 @@ public class ProductController extends HttpServlet {
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST_Products);
         try {
+            
             request.setAttribute("products", con.getAllProducts());
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         view.forward(request, response);
+       
     }
 }
