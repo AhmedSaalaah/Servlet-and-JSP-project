@@ -19,9 +19,9 @@ import java.util.Vector;
  */
 public class Database2 {
 
-    private final String url = "jdbc:postgresql://localhost/products";
+    private final String url =  "jdbc:postgresql://localhost:5432/onlineshop";
     private final String user = "postgres";
-    private final String password = "1234";
+    private final String password = "ahmed";
     public Connection connection = null;
     public String SQLcommand = null;
     public ResultSet rs = null;
@@ -52,7 +52,7 @@ public class Database2 {
         Vector<String[]> users = new Vector();
         try {
             connect();
-            SQLcommand = "Select * from products2";
+            SQLcommand = "Select * from products";
             s = connection.createStatement();
             rs = s.executeQuery(SQLcommand);
             while (rs.next()) {
@@ -77,7 +77,7 @@ public class Database2 {
         Vector<String[]> mobiles = new Vector();
         try {
             connect();
-            SQLcommand = "Select * from products2 where category='mobiles'";
+            SQLcommand = "Select * from products where category='mobiles'";
             s = connection.createStatement();
             rs = s.executeQuery(SQLcommand);
             while (rs.next()) {
@@ -102,7 +102,7 @@ public class Database2 {
         Vector<String[]> laptops = new Vector();
         try {
             connect();
-            SQLcommand = "Select * from products2 where category='laptops'";
+            SQLcommand = "Select * from products where category='laptops'";
             s = connection.createStatement();
             rs = s.executeQuery(SQLcommand);
             while (rs.next()) {
@@ -128,7 +128,7 @@ public class Database2 {
 
         try {
             connect();
-            SQLcommand = "insert into products2 (product_name,price,category,image,description,quantity) values (?,?,?,?,?,?)";
+            SQLcommand = "insert into products (product_name,price,category,image,description,quantity) values (?,?,?,?,?,?)";
             ps = connection.prepareStatement(SQLcommand);
             ps.setString(1, name);
             ps.setInt(2, price);

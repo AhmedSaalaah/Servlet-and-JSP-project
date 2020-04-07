@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> View Products </title>
         <link rel="stylesheet" href="try.css">
+            <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/hider.css">
     </head>
     <body>
         <%@page import="DataBase.Database2" %>
