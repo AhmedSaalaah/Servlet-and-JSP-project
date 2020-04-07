@@ -29,8 +29,8 @@
                     value="<c:out value="${product.p_id}" />" /> <br  /> 
             Product name : <input type="text"  name="p_name"  required name="username"
                                   value="<c:out value="${product.p_name}" />" /> <br /> 
-            price: <input required name="usernae"
-                          type="number" name="price"  
+            price: <input type="number" required name="price"
+                           name="price"  
                           value="<c:out value="${product.price}" />" /> <br /> 
             category : <input
                 type="text" name="category" required name="usename"
@@ -39,7 +39,7 @@
             description: <input type="text" name="description" required name="usrname"
                                 value="<c:out value="${product.description}" />" /> <br />
 
-            quantity <input type="number" name="quantity"required name="ername"
+            quantity <input  type="number" name="quantity"required name="ername"
                             value="<c:out value="${product.quantity}" />" /> <br />
             <input
                 type="submit" value="Submit" />

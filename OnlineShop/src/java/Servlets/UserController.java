@@ -42,7 +42,7 @@ public class UserController extends HttpServlet {
         try {
             HttpSession session = req.getSession(false);
             String admin =(String) session.getAttribute("admin");
-            if(admin.equals("yes")){
+            if(null!=admin &&admin.equals("yes")){
             String forward = "";
             req.setAttribute("users", con.getAllUsers());
             String action = req.getParameter("action");

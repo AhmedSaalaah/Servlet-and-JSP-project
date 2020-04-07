@@ -45,7 +45,7 @@ public class ProductController extends HttpServlet {
 
         HttpSession session = req.getSession(false);
         String admin = (String) session.getAttribute("admin");
-        if (admin.equals("yes")) {
+        if (null!= admin &&admin.equals("yes")) {
             String forward = "";
             String action = req.getParameter("action");
 

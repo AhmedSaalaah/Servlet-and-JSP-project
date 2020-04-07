@@ -33,8 +33,8 @@
     
     <body>
      
-
-     
+        welcome <%=session.getAttribute("username")%>
+      
         <table border=1>
             <thead>
                 <tr>
