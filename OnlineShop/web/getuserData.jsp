@@ -11,6 +11,13 @@
 <%= usr.username%> 
 <%= usr.pass%> 
 
+  <%
+        if (session.getAttribute("islogin").equals(true))
+    {%>
+        you are login in already
+
+   <%} else {%>
+
 
 
 <%}%> 
@@ -18,7 +25,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@page import="java.util.Vector"%>
-<%@page import="Database.ConnectDB"%>
+<%@page import="DataBase.ConnectDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Data.User" %>
 <!DOCTYPE html>

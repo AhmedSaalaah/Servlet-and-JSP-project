@@ -97,7 +97,4 @@ public class Insert {
             + "Screen Size: 15 - 15.9 inch\n"
             + "Memory Size: 16 gb", 5);
 
-    public static void main(String[] args) {
-        
-    }
 }

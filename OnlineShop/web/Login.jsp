@@ -23,7 +23,7 @@
   <%
         if (session.getAttribute("islogin").equals(true))
     {%>
-        you are login in already
+        you are already logged in
 
    <%} else {%>
 

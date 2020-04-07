@@ -19,7 +19,7 @@ import java.util.Vector;
  */
 public class Database2 {
 
-    private final String url = "jdbc:postgresql://localhost/onlineshop";
+    private final String url =  "jdbc:postgresql://localhost:5432/onlineshop";
     private final String user = "postgres";
     private final String password = "ahmed";
     public Connection connection = null;
@@ -102,7 +102,7 @@ public class Database2 {
         Vector<String[]> laptops = new Vector();
         try {
             connect();
-            SQLcommand = "Select * from products2 where category='laptops'";
+            SQLcommand = "Select * from products where category='laptops'";
             s = connection.createStatement();
             rs = s.executeQuery(SQLcommand);
             while (rs.next()) {
