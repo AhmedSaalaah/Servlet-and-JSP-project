@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,16 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+
+
 </head>
+  <%
+        if (session.getAttribute("islogin").equals("yes"))
+    {%>
+    <jsp:forward page="/indexUsers.jsp"/>
+
+   <%}%>
+
 <body>
 	
 	<div class="limiter">

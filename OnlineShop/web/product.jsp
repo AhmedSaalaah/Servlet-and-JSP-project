@@ -15,7 +15,7 @@
     <%
         if (!session.getAttribute("admin").equals("yes"))
     {%>
-    <jsp:forward page="/Login.html"/>
+    <jsp:forward page="/Login.jsp"/>
 
    <%}%>
 

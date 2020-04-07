@@ -26,7 +26,8 @@ public class Logout extends HttpServlet {
         HttpSession session = req.getSession(false);
         session.setAttribute("admin", "no");
         session.setAttribute("user", "no");
-        resp.sendRedirect("Login.html");
+        session.setAttribute("islogin", "no");
+        resp.sendRedirect("Login.jsp");
     }
 
 }

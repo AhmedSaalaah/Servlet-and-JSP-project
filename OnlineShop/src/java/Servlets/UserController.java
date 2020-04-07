@@ -63,7 +63,7 @@ public class UserController extends HttpServlet {
             e.forward(req, resp);
             }else{
             
-                 resp.sendRedirect("Login.html");
+                 resp.sendRedirect("Login.jsp");
             }
 
         } catch (ClassNotFoundException ex) {

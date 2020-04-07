@@ -75,7 +75,7 @@ public class ProductController extends HttpServlet {
             view.forward(req, resp);
         }else{
             
-            resp.sendRedirect("Login.html");
+            resp.sendRedirect("Login.jsp");
         
         }
     }
