@@ -7,7 +7,7 @@ package Servlets;
 
 import Data.User;
 import Data.Product;
-import Database.ConnectDB;
+import DataBase.ConnectDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;

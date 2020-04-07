@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Data.User;
-import Database.ConnectDB;
+import DataBase.ConnectDB;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
