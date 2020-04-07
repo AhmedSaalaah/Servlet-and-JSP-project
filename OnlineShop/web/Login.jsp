@@ -21,11 +21,14 @@
 
 </head>
   <%
-        if (session.getAttribute("islogin").equals("yes"))
+        if (session.getAttribute("islogin").equals(true))
     {%>
-    <jsp:forward page="/indexUsers.jsp"/>
+        you are login in already
 
-   <%}%>
+   <%} else {%>
+
+
+   
 
 <body>
 	
@@ -66,3 +69,4 @@
 
 </body>
 </html>
+<%}%>
