@@ -36,13 +36,13 @@ public class Login extends HttpServlet {
             usr.username = req.getParameter("username");
             usr.pass = req.getParameter("pass");
             
-          
+      
                 if (conn.checkLogin(usr)) {
                     if (conn.isadmin(usr)) {
                         HttpSession session = req.getSession(true);
                         session.setAttribute("admin", "yes");
                         session.setAttribute("username", usr.username);
-                        session.setAttribute("islogin", "true");
+                        session.setAttribute("islogin", true);
                         resp.sendRedirect("indexusers.jsp");
 
                     } else {
@@ -56,7 +56,8 @@ public class Login extends HttpServlet {
 
                     out.print("username doesnot match");
                 }
-            
+          
+          
             }catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
