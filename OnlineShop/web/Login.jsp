@@ -21,11 +21,13 @@
 
 </head>
   <%
-        if (session.getAttribute("islogin").equals(true))
+      if(session ==null){%>
+      
+        <%if (session.getAttribute("islogin").equals(true))
     {%>
         you are already logged in
-
-   <%} else {%>
+<%}%>
+   <%} else  {%>
 
 
    
