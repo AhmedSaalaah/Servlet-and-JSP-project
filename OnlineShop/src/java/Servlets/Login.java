@@ -36,13 +36,13 @@ public class Login extends HttpServlet {
             usr.username = req.getParameter("username");
             usr.pass = req.getParameter("pass");
             
-      
+            
                 if (conn.checkLogin(usr)) {
                     if (conn.isadmin(usr)) {
                         HttpSession session = req.getSession(true);
                         session.setAttribute("admin", "yes");
                         session.setAttribute("username", usr.username);
-                        session.setAttribute("islogin", true);
+                        session.setAttribute("islogin", "yes");
                         resp.sendRedirect("indexusers.jsp");
 
                     } else {
