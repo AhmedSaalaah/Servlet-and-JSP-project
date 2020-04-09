@@ -49,7 +49,8 @@ public class Login extends HttpServlet {
                         out.print("user");
                         HttpSession session = req.getSession(true);
                         session.setAttribute("user", "yes");
-                        resp.sendRedirect("index.html");
+                        session.setAttribute("islogin", "yes");
+                        resp.sendRedirect("Home.jsp");
                     }
 
                 } else {

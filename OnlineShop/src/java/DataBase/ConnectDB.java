@@ -132,7 +132,8 @@ public class ConnectDB {
                     rs.getInt("price"),
                     rs.getString("category"),
                     rs.getString("description"),
-                    rs.getInt("quantity")));
+                    rs.getInt("quantity"),
+                    rs.getString("image")));
         }
 
         return products;
@@ -178,14 +179,28 @@ public class ConnectDB {
             pro.image=(rs.getString("image"));
             pro.description=(rs.getString("description"));
             pro.quantity =rs.getInt("quantity");
+           
 
         }
-    
-  
-
+ 
     return pro ;
 
 }
+    
+    public ResultSet getImage() throws ClassNotFoundException, SQLException{
+        connect();
+        Product pro = new Product();
+        String sql = "select image from products";
+        pst=con.prepareStatement(sql);
+        rs=pst.executeQuery();
+        while(rs.next()){
+           return rs;
+        
+        }
+            
+          return rs;      
+    
+    }
 
 public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ConnectDB c = new ConnectDB();
@@ -199,17 +214,17 @@ public static void main(String[] args) throws ClassNotFoundException, SQLExcepti
 //        for (User q : list) {
 //            System.out.println(q.username);
 //        }
-//          List<Product> pro = c.getAllProducts();
-//        for (Product w : pro) {
-//            System.out.println(w.pname+""+w.p_id);
-//        }
+          List<Product> pro = c.getAllProducts();
+        for (Product w : pro) {
+            System.out.println(w.image);
+        }
         
-       Product p= new Product();
-       p=c.getProductbyid(7);
-       p.p_name ="sam";
-       c.updateProduct(p);
+        //  Product p= new Product();
+//       p=c.getProductbyid(7);
+//       p.p_name ="sam";
+//       c.updateProduct(p);
+ 
        
        
-        
     }
 }

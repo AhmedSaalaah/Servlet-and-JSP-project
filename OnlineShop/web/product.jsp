@@ -21,7 +21,7 @@
 
 
     
-    <body>Login.jsp
+    <body>
 
 
         <form method="POST" action='ProductController' >
@@ -41,8 +41,11 @@
 
             quantity <input  type="number" name="quantity"required name="ername"
                             value="<c:out value="${product.quantity}" />" /> <br />
-            <input
-                type="submit" value="Submit" />
+         
+            Add Image <input  type="file" name="image"required name="photo"
+                            value="<c:out value="${product.image}" />" /> <br />
+                    
+            <input   type="submit" value="Submit" />
         </form>
     </body>
 </html>

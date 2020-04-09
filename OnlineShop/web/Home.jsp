@@ -1,3 +1,9 @@
+<% if (session.getAttribute("user") ==null) {%>
+
+<jsp:forward page="Login.jsp"/>
+<%}else{%>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,6 +15,7 @@
         <link rel="stylesheet" href="css/hider.css">
 
     </head>
+    
     <body>
         <div class="header">
             <div class="container">
@@ -58,6 +65,7 @@
                     <li><a href="View_products.jsp" > Products </a></li>
                     <li><a href="View_mobiles.jsp"> Mobiles </a></li>
                     <li><a href="View_laptops.jsp"> Laptops </a></li>
+                    <li><a href="Logout"> Logout </a></li>
 
 
                 </ul>
@@ -73,3 +81,4 @@
 
     </body>
 </html>
+<%}%>
