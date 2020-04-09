@@ -20,6 +20,21 @@ body {
   margin: 0;
   font-size: 14px;
 }
+.overlay {
+  visibility: visible;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+  
+}
 
 /* line 10, /Applications/MAMP/htdocs/old/palash/cl/shop_html/sass/_common.scss */
 .message_submit_form:focus {

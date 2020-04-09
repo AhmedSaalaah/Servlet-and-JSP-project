@@ -1,6 +1,6 @@
 package addtocart;
 
-import database.Database;
+import database.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -29,19 +29,10 @@ public class addToCart extends HttpServlet {
     Integer pi;
     Integer oi;
     Integer price;
-
+ ConnectDB db = new ConnectDB();
     @Override
     public void init() throws ServletException {
-        try {
-            try {
-                Class.forName("org.postgresql.Driver");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            conn1 = DriverManager.getConnection("jdbc:postgresql://localhost:5432/onlineshop", "postgres", "1234");
-        } catch (SQLException ex) {
-            Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
-        }
+ 
     }
 
     @Override
@@ -49,17 +40,22 @@ public class addToCart extends HttpServlet {
             throws ServletException, IOException {
         HttpSession httpSession1 = request.getSession(false);
         if (httpSession1 != null && httpSession1.getAttribute("IsLogin").equals("true")) {
-            ud = (Integer) httpSession1.getAttribute("user_id");
-            sqlCommand = "select user_id from orders where user_id=' " + ud + "'";
             try {
-                st = conn1.createStatement();
-                result = st.executeQuery(sqlCommand);
+                ud = (Integer) httpSession1.getAttribute("user_id");
+                try {
+                    result = db.verifyUserExist(ud);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 PrintWriter out = response.getWriter();
                 if (!result.next() == false) {
                     int i = 0;
-                    sqlCommand = "select user_id ,date  from orders where user_id=' " + ud + "'";
-                    st = conn1.createStatement();
-                    result = st.executeQuery(sqlCommand);
+                    
+                    try {
+                        result = db.getUserId(ud);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     while (result.next()) {
                         if (result.getString(2) != null) {
                             i = 1;
@@ -70,90 +66,67 @@ public class addToCart extends HttpServlet {
                     if (i == 1) {
 
                         pi = Integer.parseInt(request.getParameter("product_id"));
-                        fun1(pi);
+                        try {
+                            fun1(pi);
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     } else {
                         pi = Integer.parseInt(request.getParameter("product_id"));
-                        insertingIntoOrderProducts(pi);
+                        try {
+                            insertingIntoOrderProducts(pi);
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 } else {
 
                     pi = Integer.parseInt(request.getParameter("product_id"));
-                    fun1(pi);
+                    try {
+                        fun1(pi);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
             }
+           
         } else {
             response.sendRedirect("login.html");
         }
+                 response.sendRedirect("homepage.html");
+
     }
 
-    public void insertingIntoOrderProducts(Integer p) {
+    public void insertingIntoOrderProducts(Integer p)throws ClassNotFoundException, SQLException {
         pi = p;
-        sqlCommand = "select order_id from orders where  user_id= " + ud + " and date IS NULL";
-        try {
-            st = conn1.createStatement();
-            result = st.executeQuery(sqlCommand);
-            while (result.next()) {
-                oi = result.getInt(1);
-            }
-            sqlCommand = "select price from products where  product_id='" + pi + "'";
-            st = conn1.createStatement();
-            result = st.executeQuery(sqlCommand);
+       
+                oi = db.getOrderId(ud);
+            
+       
+            result = db.getPrice(pi);
             while (result.next()) {
                 price = result.getInt(1);
             }
-            sqlCommand = "insert into order_products  Values (?,?,?,?)";
-            preparedStatment = conn1.prepareStatement(sqlCommand);
-            preparedStatment.setInt(1, pi);
-            preparedStatment.setInt(2, oi);
-            preparedStatment.setInt(3, 1);
-            preparedStatment.setInt(4, price);
-            preparedStatment.execute();
-        } catch (SQLException ex) {
-        }
+ db.updateOrderProducts(oi,pi,price);
+        
     }
-        public void fun1(Integer p) {
+        public void fun1(Integer p)throws ClassNotFoundException, SQLException {
           
         
             
-            sqlCommand = "insert into orders  (user_id)  values ('" + ud + "')";
-            
-            try {
-                st = conn1.createStatement();
-            } catch (SQLException ex) {
-                Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            try {
-                st.executeQuery(sqlCommand);
-            } catch (SQLException ex) {
-                Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            System.err.println("eroooooooorrr1");
+db.updateOrders(ud);            
         pi = p;
-        sqlCommand = "select order_id from orders where  user_id= " + ud + " and date IS NULL";
-        try {
-            st = conn1.createStatement();
-            result = st.executeQuery(sqlCommand);
-            while (result.next()) {
-                oi = result.getInt(1);
-            }
-            sqlCommand = "select price from products where  product_id='" + pi + "'";
-            st = conn1.createStatement();
-            result = st.executeQuery(sqlCommand);
+       
+                oi = db.getOrderId(ud);
+            
+       
+            result = db.getPrice(pi);
             while (result.next()) {
                 price = result.getInt(1);
             }
-            sqlCommand = "insert into order_products  Values (?,?,?,?)";
-            preparedStatment = conn1.prepareStatement(sqlCommand);
-            preparedStatment.setInt(1, pi);
-            preparedStatment.setInt(2, oi);
-            preparedStatment.setInt(3, 1);
-            preparedStatment.setInt(4, price);
-            preparedStatment.execute();
-        } catch (SQLException ex) {
-        }
+ db.updateOrderProducts(oi,pi,price);
         
    
     

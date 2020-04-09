@@ -25,21 +25,25 @@ public class login extends HttpServlet {
     ResultSet result ;
     String sqlCommand;
     int x = 0;
-
+ ConnectDB db = new ConnectDB();
     @Override
     public void init() throws ServletException {
-              try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+            
         try {
-
-            conn1 = DriverManager.getConnection("jdbc:postgresql://localhost:5432/onlineshop", "postgres", "1234");
-        } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            Class.forName("org.postgresql.Driver");
+            
+            
+            
+            
+            try {
+                conn1 = DriverManager.getConnection("jdbc:postgresql://localhost:5432/onlineshop", "postgres", "1234");
+            } catch (SQLException ex) {
+                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
     }
 
     @Override
@@ -70,7 +74,7 @@ public class login extends HttpServlet {
                         httpSession.setAttribute("fname", fname);
                         httpSession.setAttribute("lname", lname);
                         httpSession.setAttribute("password", pass);
-                        httpSession.setAttribute("user_id", 1);
+                        httpSession.setAttribute("user_id", 3);
                         response.sendRedirect("product.html");
 
                     }

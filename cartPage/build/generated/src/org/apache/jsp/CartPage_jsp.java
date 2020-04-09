@@ -27,13 +27,9 @@ public final class CartPage_jsp extends org.apache.jasper.runtime.HttpJspBase
     Integer price;
     ResultSet rs;
     List<Integer> products;
-    Integer oldQuantity=0 ;
-    Integer newQuantity =0;
+    Integer oldQuantity = 0;
+    Integer newQuantity = 0;
     ConnectDB db = new ConnectDB();
-boolean f;
-        
-
-     
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
@@ -81,23 +77,24 @@ boolean f;
       out.write("\n");
       out.write('\n');
 
- 
-    
     db.connect();
-    
-    
-    if(request!=null && request.getParameter("quantity")!=null &&request.getParameter("order_id")!=null &&request.getParameter("product_id")!= null)
-    {
-     newQuantity= Integer.parseInt(request.getParameter("quantity"));
-     oldQuantity= db.getQuantity(Integer.parseInt(request.getParameter("order_id")),Integer.parseInt(request.getParameter("product_id")));
-     if(!newQuantity.equals(oldQuantity)){
-        db.updatequantity(Integer.parseInt(request.getParameter("product_id")),Integer.parseInt(request.getParameter("order_id")),newQuantity);
-
-     
+    if (request != null ) {
+        if(request.getParameter("name")!=null && request.getParameter("name").equals("remove"))
+        {
+           db.remove(Integer.parseInt(request.getParameter("product_id")),Integer.parseInt(request.getParameter("order_id")) );  
+        }
+        else {
+            if(request.getParameter("quantity")!=null &&request.getParameter("order_id")!=null &&request.getParameter("product_id")!=null){
+        newQuantity = Integer.parseInt(request.getParameter("quantity"));
+        oldQuantity = db.getQuantity(Integer.parseInt(request.getParameter("order_id")), Integer.parseInt(request.getParameter("product_id")));
+        if (!newQuantity.equals(oldQuantity)) {
+            db.updatequantity(Integer.parseInt(request.getParameter("product_id")), Integer.parseInt(request.getParameter("order_id")), newQuantity);
+        }
+        }
     }
     }
-//    HttpSession httpSession1 = request.getSession(false);
-//    if (httpSession1 != null && httpSession1.getAttribute("IsLogin").equals("true")) { 
+//   HttpSession httpSession1 = request.getSession(false);
+//  if (httpSession1 != null && httpSession1.getAttribute("IsLogin").equals("true")) { 
       out.write('\n');
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"en\">\r\n");
@@ -122,6 +119,18 @@ boolean f;
       out.write("    <link rel=\"stylesheet\" href=\"css/themify-icons.css\">\r\n");
       out.write("   \r\n");
       out.write("    <link rel=\"stylesheet\" href=\"css/style.css\">\r\n");
+      out.write("      \r\n");
+      out.write("    <link rel=\"stylesheet\" href=\"css1/bootstrap.min.css\">\r\n");
+      out.write("   \r\n");
+      out.write("  \r\n");
+      out.write("    <link rel=\"stylesheet\" href=\"css1/all.css\">\r\n");
+      out.write("   \r\n");
+      out.write("    <link rel=\"stylesheet\" href=\"css1/flaticon.css\">\r\n");
+      out.write("    <link rel=\"stylesheet\" href=\"css1/themify-icons.css\">\r\n");
+      out.write("   \r\n");
+      out.write("    <link rel=\"stylesheet\" href=\"css1/style.css\">\r\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css1/all.min.css\">\r\n");
+      out.write("    <link rel=\"stylesheet\" href=\"css1/hider.css\">\r\n");
       out.write("   \r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
@@ -152,7 +161,7 @@ boolean f;
       out.write("        \r\n");
       out.write("        </div>\r\n");
       out.write("        <!-- <div class=\"container3\" style=\"background-image: url(img/123.jpg);\">  -->\r\n");
-      out.write("            <div class=\"section1\">\r\n");
+      out.write("            <div class=\"section1\" >\r\n");
       out.write("                <ul>\r\n");
       out.write("                    <li><a href=\"#\">Home</a></li>\r\n");
       out.write("                    <li><a href=\"#\">About Us</a></li>\r\n");
@@ -162,11 +171,9 @@ boolean f;
       out.write("               \r\n");
       out.write("            </div>\r\n");
       out.write("            \r\n");
-      out.write("            \r\n");
-      out.write("            \r\n");
-      out.write("        </div>\r\n");
+      out.write("\r\n");
       out.write("   \r\n");
-      out.write("    \r\n");
+      out.write(" \r\n");
       out.write("\n");
       out.write("<!-- breadcrumb part start-->\n");
       out.write("<section class=\"breadcrumb_part\">\n");
@@ -203,8 +210,9 @@ boolean f;
       out.write("\n");
       out.write("                ");
 
-//                    ud = (Integer) httpSession1.getAttribute("user_id");
-                    ud = 1;
+                    ud=3;
+//                  ud = (Integer) httpSession1.getAttribute("user_id");
+                   
                     oi = db.getOrderId(ud);
 
                     products = db.getProductIdsByOrderId(oi);
@@ -243,36 +251,24 @@ boolean f;
       out.write("</h5>\n");
       out.write("                    </td>\n");
       out.write("                    <td>\n");
-      out.write("             \n");
-      out.write("<!--                        <div class=\"product_count\">\n");
-      out.write("                            <span class=\"input-number-decrement\"> <i class=\"ti-minus\" onclick=\"decrementValue()\"></i></span>\n");
-      out.write("                            <input class=\"input-number\" type=\"text\" id=\"1\" value=\" ");
+      out.write("\n");
+      out.write("                        <form action=\"#\" >\n");
+      out.write("\n");
+      out.write("                            <input  type=\"submit\" onclick=\"decrementValue()\"  value=\"-\" class=\"input-number-decrement\">  \n");
+      out.write("\n");
+      out.write("                            <input class=\"input-number\" type=\"number\" id=\"1\"  name =\"quantity\" value=\" ");
       out.print(rs.getInt(4));
       out.write("\" min=\"0\" max=\"10\">\n");
-      out.write("                            <span class=\"input-number-increment\"> <i class=\"ti-plus\" onclick=\"incrementValue()\" ></i></span>-->\n");
-      out.write("\n");
-      out.write("<form action=\"#\" >\n");
-      out.write("               \n");
-      out.write("             <input  type=\"submit\" onclick=\"decrementValue()\"  value=\"-\" class=\"input-number-decrement\">  \n");
-      out.write("\n");
-      out.write("           <input class=\"input-number\" type=\"number\" id=\"1\"  name =\"quantity\" value=\" ");
-      out.print(rs.getInt(4));
-      out.write("\" min=\"0\" max=\"10\">\n");
-      out.write("             <input type='hidden' name='product_id' value='");
+      out.write("                            <input type='hidden' name='product_id' value='");
       out.print(products.get(i));
       out.write("' \n");
       out.write("                                   />\n");
-      out.write("               <input type='hidden' name='order_id' value= '");
+      out.write("                            <input type='hidden' name='order_id' value= '");
       out.print(oi);
       out.write("'\n");
       out.write("                                   />\n");
-      out.write("            <input  type=\"submit\" onclick=\"incrementValue()\"  value=\"+\" class=\"input-number-increment\"> \n");
+      out.write("                            <input  type=\"submit\" onclick=\"incrementValue()\"  value=\"+\" class=\"input-number-increment\"> \n");
       out.write("\n");
-      out.write("                            \n");
-      out.write("                            \n");
-      out.write("                             \n");
-      out.write("                            \n");
-      out.write("                            \n");
       out.write("                            <script>\n");
       out.write("                                function incrementValue()\n");
       out.write("                                {\n");
@@ -293,12 +289,10 @@ boolean f;
       out.write("                                }\n");
       out.write("\n");
       out.write("                            </script>\n");
-      out.write("                              </form>\n");
-      out.write("                        <!--</div>-->\n");
-      out.write("\n");
+      out.write("                        </form>\n");
       out.write("                    </td>\n");
       out.write("                    <td>\n");
-      out.write("                        <form action='remove' method=\"GET\" >\n");
+      out.write("                        <form action='#' >\n");
       out.write("\n");
       out.write("                            <input type='hidden' name='product_id' value='");
       out.print(products.get(i));
@@ -326,7 +320,12 @@ boolean f;
       out.write("        </table>\n");
       out.write("    </div>\n");
       out.write("</section>\n");
-      out.write("<a class=\"btn_1 checkout_btn_1\" href=\"#\">Proceed to checkout</a>\n");
+      out.write("   <a class=\"btn_1 checkout_btn_1\" href=\"/cartPage/checkout.jsp?order_id=");
+      out.print(oi);
+      out.write("&user_id=");
+      out.print(ud);
+      out.write("\">Proceed to checkout</a>\n");
+      out.write("\n");
       out.write("<!--================End Cart Area =================-->\n");
       out.write("\n");
       out.write("\n");
@@ -362,7 +361,11 @@ boolean f;
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("<!-- } \n");
+      out.write("else{\n");
+      out.write("          response.sendRedirect(\"login.html\");\n");
       out.write("\n");
+      out.write("}-->\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");

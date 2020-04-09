@@ -5,6 +5,8 @@
  */
 package Servlets;
 
+import Data.User;
+import Database.ConnectDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;

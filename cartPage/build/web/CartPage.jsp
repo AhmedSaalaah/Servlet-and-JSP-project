@@ -31,8 +31,8 @@
         }
     }
     }
-    HttpSession httpSession1 = request.getSession(false);
-   if (httpSession1 != null && httpSession1.getAttribute("IsLogin").equals("true")) { %>
+   HttpSession httpSession1 = request.getSession(false);
+  if (httpSession1 != null && httpSession1.getAttribute("IsLogin").equals("true")) { %>
 <%@include file="hider2.html" %>
 <!-- breadcrumb part start-->
 <section class="breadcrumb_part">
@@ -68,8 +68,9 @@
 
 
                 <%
-//                    ud = (Integer) httpSession1.getAttribute("user_id");
-                    ud = 1;
+                    
+             ud = (Integer) httpSession1.getAttribute("user_id");
+                   
                     oi = db.getOrderId(ud);
 
                     products = db.getProductIdsByOrderId(oi);
@@ -156,7 +157,8 @@
         </table>
     </div>
 </section>
-<a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
+   <a class="btn_1 checkout_btn_1" href="/cartPage/checkout.jsp?order_id=<%=oi%>&user_id=<%=ud%>">Proceed to checkout</a>
+
 <!--================End Cart Area =================-->
 
 
@@ -192,9 +194,9 @@
 
 
 
- <%    } 
+<%} 
 else{
-            response.sendRedirect("login.html");
+          response.sendRedirect("login.html");
 
 }%>
 

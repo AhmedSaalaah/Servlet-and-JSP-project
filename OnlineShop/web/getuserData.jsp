@@ -27,14 +27,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-
-
-    
-    
     <body>
-     
-
-     
         <table border=1>
             <thead>
                 <tr>
@@ -61,7 +54,5 @@
                 </c:forEach>
             </tbody>
         </table>
-        <div style="text-align: left"><a href="<%=request.getContextPath()%>/Logout">Logout</a></div>
-
     </body>
 </html>
