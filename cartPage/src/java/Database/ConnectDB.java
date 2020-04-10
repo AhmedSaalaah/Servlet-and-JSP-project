@@ -320,11 +320,19 @@ public class ConnectDB {
               rs = pst.executeQuery();
         return rs;
     }
-              public ResultSet getPrice(int product_id) throws ClassNotFoundException, SQLException {
+             public ResultSet getPrice(String product_name) throws ClassNotFoundException, SQLException {
                 connect();
-        String sql = "select price from products where  product_id=?";
+        String sql = "select price from products where  product_name=?";
            pst = con.prepareStatement(sql);
-         pst.setInt(1,product_id );
+         pst.setString(1,product_name );
+              rs = pst.executeQuery();
+        return rs;
+    }
+       public ResultSet getProductId(String product_name) throws ClassNotFoundException, SQLException {
+                connect();
+        String sql = "select product_id from products where  product_name=?";
+           pst = con.prepareStatement(sql);
+         pst.setString(1,product_name );
               rs = pst.executeQuery();
         return rs;
     }

@@ -5,19 +5,24 @@
  */
 package Servlets;
 
+<<<<<<< HEAD
 import Data.User;
 import Database.ConnectDB;
+=======
+import DataBase.ConnectDB;
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Database.*;
 import Data.*;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -30,6 +35,13 @@ public class Login extends HttpServlet {
     User usr = new User();
     HttpSession session;
 
+
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        getServletContext();
+        
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -37,25 +49,44 @@ public class Login extends HttpServlet {
             PrintWriter out = resp.getWriter();
             usr.username = req.getParameter("username");
             usr.pass = req.getParameter("pass");
-            
+
             if (conn.checkLogin(usr)) {
                 if (conn.isadmin(usr)) {
+<<<<<<< HEAD
                   
+=======
+                    HttpSession session = req.getSession(true);
+                    session.setAttribute("admin", "yes");
+                    session.setAttribute("username", usr.username);
+                    session.setAttribute("islogin", "yes");
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
                     resp.sendRedirect("indexusers.jsp");
-                    
+
                 } else {
                     out.print("user");
+<<<<<<< HEAD
                    
                     resp.sendRedirect("index.html");
+=======
+                    HttpSession session = req.getSession(true);
+                    session.setAttribute("user", "yes");
+                    session.setAttribute("islogin", "yes");
+                    resp.sendRedirect("Home.jsp");
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
                 }
 
             } else {
-                
+
                 out.print("username doesnot match");
             }
-            } catch (SQLException | ClassNotFoundException ex) {
+
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public static void main(String[] args) throws ServletException {
+       
     }
 
 }

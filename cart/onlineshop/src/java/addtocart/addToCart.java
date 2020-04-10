@@ -30,6 +30,7 @@ public class addToCart extends HttpServlet {
     Integer oi;
     Integer price;
  ConnectDB db = new ConnectDB();
+ String pn;
     @Override
     public void init() throws ServletException {
  
@@ -65,25 +66,25 @@ public class addToCart extends HttpServlet {
                     }
                     if (i == 1) {
 
-                        pi = Integer.parseInt(request.getParameter("product_id"));
+                        pn = request.getParameter("product_name");
                         try {
-                            fun1(pi);
+                            fun1(pn);
                         } catch (ClassNotFoundException ex) {
                             Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     } else {
-                        pi = Integer.parseInt(request.getParameter("product_id"));
+                        pn = request.getParameter("product_name");
                         try {
-                            insertingIntoOrderProducts(pi);
+                            insertingIntoOrderProducts(pn);
                         } catch (ClassNotFoundException ex) {
                             Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 } else {
 
-                    pi = Integer.parseInt(request.getParameter("product_id"));
+                    pn = request.getParameter("product_name");
                     try {
-                        fun1(pi);
+                        fun1(pn);
                     } catch (ClassNotFoundException ex) {
                         Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -99,32 +100,40 @@ public class addToCart extends HttpServlet {
 
     }
 
-    public void insertingIntoOrderProducts(Integer p)throws ClassNotFoundException, SQLException {
-        pi = p;
+    public void insertingIntoOrderProducts(String p)throws ClassNotFoundException, SQLException {
+        pn = p;
        
                 oi = db.getOrderId(ud);
             
        
-            result = db.getPrice(pi);
+            result = db.getPrice(pn);
             while (result.next()) {
                 price = result.getInt(1);
+            }
+            result = db.getProductId(pn);
+            while (result.next()) {
+                pi = result.getInt(1);
             }
  db.updateOrderProducts(oi,pi,price);
         
     }
-        public void fun1(Integer p)throws ClassNotFoundException, SQLException {
+        public void fun1(String p)throws ClassNotFoundException, SQLException {
           
         
             
 db.updateOrders(ud);            
-        pi = p;
+        pn = p;
        
                 oi = db.getOrderId(ud);
             
        
-            result = db.getPrice(pi);
+            result = db.getPrice(pn);
             while (result.next()) {
                 price = result.getInt(1);
+            }
+                        result = db.getProductId(pn);
+            while (result.next()) {
+                pi = result.getInt(1);
             }
  db.updateOrderProducts(oi,pi,price);
         

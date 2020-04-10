@@ -5,8 +5,12 @@
  */
 package Servlets;
 
+<<<<<<< HEAD
 import Data.User;
 import Database.ConnectDB;
+=======
+import DataBase.ConnectDB;
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -16,7 +20,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Database.*;
 import Data.*;
 
 /**
