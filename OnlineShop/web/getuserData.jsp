@@ -34,13 +34,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+
+
+    
+    
     <body>
-<<<<<<< HEAD
-=======
      
         welcome <%=session.getAttribute("username")%>
       
->>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
         <table border=1>
             <thead>
                 <tr>
@@ -67,5 +68,7 @@
                 </c:forEach>
             </tbody>
         </table>
+        <div style="text-align: left"><a href="<%=request.getContextPath()%>/Logout">Logout</a></div>
+
     </body>
 </html>

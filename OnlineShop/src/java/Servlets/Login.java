@@ -5,12 +5,7 @@
  */
 package Servlets;
 
-<<<<<<< HEAD
-import Data.User;
-import Database.ConnectDB;
-=======
 import DataBase.ConnectDB;
->>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -52,27 +47,18 @@ public class Login extends HttpServlet {
 
             if (conn.checkLogin(usr)) {
                 if (conn.isadmin(usr)) {
-<<<<<<< HEAD
-                  
-=======
                     HttpSession session = req.getSession(true);
                     session.setAttribute("admin", "yes");
                     session.setAttribute("username", usr.username);
                     session.setAttribute("islogin", "yes");
->>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
                     resp.sendRedirect("indexusers.jsp");
 
                 } else {
                     out.print("user");
-<<<<<<< HEAD
-                   
-                    resp.sendRedirect("index.html");
-=======
                     HttpSession session = req.getSession(true);
                     session.setAttribute("user", "yes");
                     session.setAttribute("islogin", "yes");
                     resp.sendRedirect("Home.jsp");
->>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
                 }
 
             } else {

@@ -10,30 +10,9 @@
 
 
 <html>
-<<<<<<< HEAD
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Show All Users</title>
-</head>
-<body>
-    <table border=1>
-        <thead>
-            <tr>
-                <th>product Id</th>
-                <th>product Name</th>
-                <th>price</th>
-                <th>catefory</th>
-                <th>description</th>
-                <th>quantity</th>
-                <th colspan=2>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${products}" var="pro">
-=======
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-        <title>Show All Users</title>
+        <title>Show All Products</title>
     </head>
 
 
@@ -41,7 +20,6 @@
 
         <table border=1>
             <thead>
->>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
                 <tr>
                     <th>product Id</th>
                     <th>product Name</th>
