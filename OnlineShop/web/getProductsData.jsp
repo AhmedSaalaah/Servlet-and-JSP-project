@@ -24,7 +24,7 @@
                     <th>product Id</th>
                     <th>product Name</th>
                     <th>price</th>
-                    <th>catefory</th>
+                    <th>category</th>
                     <th>description</th>
                     <th>quantity</th>
                     <th>image</th>
