@@ -30,6 +30,7 @@
  - Manage the products prices and quantities (add, edit and Edit Price).
  - Review/List customer's profile and can delete from it.
  - Edit for profile and Products Info.
+ -review customer's order history.
  - Add or Delete another admins.
 
 
