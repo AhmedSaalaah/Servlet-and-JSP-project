@@ -22,25 +22,25 @@
 
 <%}%> 
 --%>
+<jsp:include page="header.jsp"/>
+
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@page import="java.util.Vector"%>
 <%@page import="DataBase.ConnectDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Data.User" %>
+
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-
-
-    
-    
     <body>
-     
-        welcome <%=session.getAttribute("username")%>
+
       
         <table border=1>
             <thead>
@@ -68,7 +68,7 @@
                 </c:forEach>
             </tbody>
         </table>
-        <div style="text-align: left"><a href="<%=request.getContextPath()%>/Logout">Logout</a></div>
+       
 
     </body>
 </html>
