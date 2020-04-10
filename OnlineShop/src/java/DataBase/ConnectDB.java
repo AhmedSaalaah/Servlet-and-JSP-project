@@ -146,14 +146,16 @@ public class ConnectDB {
 
     public void updateProduct(Product pro) throws ClassNotFoundException, SQLException {
         connect();
-        String sql = "update products set product_name=?, price =?,category=?,description=?,quantity=? where product_id=?";
+        String sql = "update products set product_name=?, price =?,category=?,description=?,quantity=?,image=? where product_id=?";
+         pro.image = ProductController.dbFileName;
         pst = con.prepareStatement(sql);
         pst.setString(1, pro.p_name);
         pst.setInt(2, pro.price);
         pst.setString(3, pro.category);
         pst.setString(4, pro.description);
         pst.setInt(5, pro.quantity);
-        pst.setInt(6, pro.p_id);
+        pst.setInt(7, pro.p_id);
+        pst.setString(6, pro.image);
         pst.executeUpdate();
     }
 
