@@ -73,7 +73,7 @@
 
         .container {
             border-radius: 5px;
-            background-color: #f2f2f2;
+            background-color: #919090;
             padding: 20px;
 
             font-style: oblique;
@@ -121,7 +121,7 @@
 
 
 
-<body style="background-color:rgb(92, 141, 104);">
+<body style="background-color:white">
 
 
     <form method="POST" action='ProductController'>
