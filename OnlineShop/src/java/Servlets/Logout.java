@@ -7,6 +7,7 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,21 +22,12 @@ public class Logout extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-<<<<<<< HEAD
-        
-        HttpSession session = req.getSession();
-        session.removeAttribute("userlogin");
-        session.invalidate();
-=======
 
         HttpSession session = req.getSession(false);
-        session.setAttribute("admin", "");
+        session.setAttribute("admin", null);
         session.setAttribute("user", null);
         session.setAttribute("islogin", null);
         resp.sendRedirect("Login.jsp");
->>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
     }
 
-    
-    
 }
