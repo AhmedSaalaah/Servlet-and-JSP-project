@@ -25,8 +25,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
+=======
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
 
 /**
  *
@@ -43,6 +46,7 @@ public class ProductController extends HttpServlet {
     private final static String UPLOAD_DIR = "Images";
     public static String dbFileName = "";
     ConnectDB con;
+   
 
     public ProductController() throws ClassNotFoundException {
         super();
@@ -53,7 +57,17 @@ public class ProductController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String forward = "";
+        String action = req.getParameter("action");
 
+<<<<<<< HEAD
+        try {
+            if (action.equalsIgnoreCase("delete")) {
+                int productId = Integer.parseInt(req.getParameter("productId"));
+                con.deleteProduct(productId);
+                forward = LIST_Products;
+                req.setAttribute("products", con.getAllProducts());
+=======
         HttpSession session = req.getSession(false);
         String admin = (String) session.getAttribute("admin");
         if (null != admin && admin.equals("yes")) {
@@ -66,21 +80,23 @@ public class ProductController extends HttpServlet {
                     con.deleteProduct(productId);
                     forward = LIST_Products;
                     req.setAttribute("products", con.getAllProducts());
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
 
-                } else if (action.equalsIgnoreCase("edit")) {
-                    forward = Insert_or_Edit;
-                    int productId = Integer.parseInt(req.getParameter("productId"));
-                    Product product = con.getProductbyid(productId);
-                    req.setAttribute("product", product);
-                } else if (action.equalsIgnoreCase("listProduct")) {
-                    forward = LIST_Products;
-                    req.setAttribute("products", con.getAllProducts());
-                } else {
-                    forward = Insert_or_Edit;
-                }
-            } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
+            } else if (action.equalsIgnoreCase("edit")) {
+                forward = Insert_or_Edit;
+                int productId = Integer.parseInt(req.getParameter("productId"));
+                Product product = con.getProductbyid(productId);
+                req.setAttribute("product", product);
+            } else if (action.equalsIgnoreCase("listProduct")) {
+                forward = LIST_Products;
+                req.setAttribute("products",con.getAllProducts());
+            } else {
+                forward = Insert_or_Edit;
             }
+<<<<<<< HEAD
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
+=======
 
             RequestDispatcher view = req.getRequestDispatcher(forward);
             view.forward(req, resp);
@@ -88,10 +104,32 @@ public class ProductController extends HttpServlet {
 
             resp.sendRedirect("Login.jsp");
 
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
         }
+
+        RequestDispatcher view = req.getRequestDispatcher(forward);
+        view.forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
+       try{
+        Product product = new Product();
+        product.p_name=(request.getParameter("p_name"));
+        product.price=Integer.parseInt(request.getParameter("price"));
+        product.category=(request.getParameter("category"));
+        product.description=(request.getParameter("description"));
+        product.quantity=Integer.parseInt(request.getParameter("quantity"));
+        String productid = request.getParameter("productId");
+        if (productid == null || productid.isEmpty()) {
+            con.addProduct(product);
+        } else{
+            product.p_id=Integer.parseInt(productid);
+            con.updateProduct(product);
+        }
+    
+       } catch (ClassNotFoundException | SQLException ex) {
+=======
         try {
 
             Product product = new Product();
@@ -129,18 +167,26 @@ public class ProductController extends HttpServlet {
             }
 
         } catch (ClassNotFoundException | SQLException ex) {
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
             Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST_Products);
         try {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
             request.setAttribute("products", con.getAllProducts());
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ProductController.class.getName()).log(Level.SEVERE, null, ex);
         }
+<<<<<<< HEAD
+        view.forward(request, response);
+=======
 
         view.forward(request, response);
 
+>>>>>>> 10820709941cda5c33b240eb10181f887c74b4cc
     }
 
     private String extractFileName(Part part) {//This method will print the file name.
@@ -159,3 +205,4 @@ public class ProductController extends HttpServlet {
     }
 
 }
+
