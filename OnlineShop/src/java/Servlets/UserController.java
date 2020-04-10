@@ -72,4 +72,7 @@ public class UserController extends HttpServlet {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public static void main(String[] args) throws ClassNotFoundException {
+      
+    }
 }

@@ -7,6 +7,7 @@ package DataBase;
 
 import Data.Product;
 import Data.User;
+import Servlets.ProductController;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class ConnectDB {
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
-
+    
     public Connection connect() throws ClassNotFoundException {
 
         try {
@@ -107,15 +108,18 @@ public class ConnectDB {
     }
 
     public void addProduct(Product pro) throws ClassNotFoundException, SQLException {
+       // ProductController p = new ProductController();
         connect();
-        String sql = "insert into products (product_name,price,category,description,quantity)"
-                + "values (?,?,?,?,?)";
+        String sql = "insert into products (product_name,price,category,description,quantity,image)"
+                + "values (?,?,?,?,?,?)";
+        pro.image = ProductController.dbFileName;
         pst = con.prepareStatement(sql);
         pst.setString(1, pro.p_name);
         pst.setInt(2, pro.price);
         pst.setString(3, pro.category);
         pst.setString(4, pro.description);
         pst.setInt(5, pro.quantity);
+        pst.setString(6, pro.image);
         pst.executeUpdate();
 
     }
@@ -214,9 +218,9 @@ public static void main(String[] args) throws ClassNotFoundException, SQLExcepti
 //        for (User q : list) {
 //            System.out.println(q.username);
 //        }
-          List<Product> pro = c.getAllProducts();
-        for (Product w : pro) {
-            System.out.println(w.image);
+        List<Product> pro = c.getAllProducts();
+             for (Product w : pro) {
+                System.out.println(w.image);
         }
         
         //  Product p= new Product();
