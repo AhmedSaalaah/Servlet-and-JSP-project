@@ -3,6 +3,8 @@
  A simple online shopping site using Servlet-and-JSP.
 
 ---This site is dedicated to selling laptops and mobiles ---
+
+
  This site is divided into two parts, part of the admin and part of the users. 
 
 
