@@ -39,7 +39,7 @@ import javax.servlet.http.Part;
 public class ProductController extends HttpServlet {
 
     private static String LIST_Products = "/getProductsData.jsp";
-    private static String Insert_or_Edit = "/product.jsp";
+    private static String Insert_or_Edit = "/Product.jsp";
     private final static String UPLOAD_DIR = "Images";
     public static String dbFileName = "";
     ConnectDB con;
