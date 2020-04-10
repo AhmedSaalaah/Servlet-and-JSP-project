@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("admin", "yes");
                     session.setAttribute("username", usr.username);
                     session.setAttribute("islogin", "yes");
-                    resp.sendRedirect("indexusers.jsp");
+                    resp.sendRedirect("indexProducts.jsp");
 
                 } else {
                     out.print("user");

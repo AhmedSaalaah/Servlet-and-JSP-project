@@ -9,6 +9,9 @@
               href="css/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
         <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<<<<<<< HEAD
+        <title>Add new Product</title>
+=======
         <title>Add new user</title>
         <style>
             body {
@@ -62,6 +65,7 @@
             }
             
         </style>
+>>>>>>> 0b797902e7fea853d5a576cdbfe1264874bdabd1
     </head>
 
  
