@@ -55,13 +55,18 @@
                         </div>
 
                         <div class="flex-sb-m w-full p-t-3 p-b-24">
-
+                                
                         </div>
 
                         <div class="container-login100-form-btn m-t-17">
                             <button class="login100-form-btn">
                                 Login
                             </button>
+                        </div>
+                      
+                        <div>
+                            <label> If you do not have please <a href="Register.html">Register</a></label>
+                            
                         </div>
 
                     </form>
