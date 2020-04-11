@@ -19,8 +19,6 @@
         <%@page import="DataBase.Database2" %>
         <%@page import="DataBase.Insert" %>
         
-        
-        
         <%
                     Database2 db = new Database2();
                     Vector<String[]> User = new Vector();
@@ -29,7 +27,7 @@
                     String image;%>
                    
                     <% for (i = 0; i < User.size(); i++) {%>
-                    
+                     <!--<form method="GET" action="">-->
                     <div id="userproduct">
                         
                         <% image=User.elementAt(i)[0];%>
@@ -40,13 +38,16 @@
                         </p>
                         <p id="productprice"> <% out.println(User.elementAt(i)[2]); %> </p> </a>
                         
-       
-                        <input type="button" value="Add to cart" id="productbutton1">
+                        <a href="../../OnlineShop/src/java/Servlets/addToCart.java?product_name=<%out.println(User.elementAt(i)[1]);%>" target="_blank">
+                        <input type="submit" value="Add to cart" id="productbutton1"> 
+                       </a>
+                        <!--<input type="button" value="Add to cart" id="productbutton1">-->
                         
                         
                     </div> 
+                          
                         <% } %>
                                              
-                    
+                        <!--</form>--> 
     </body>
 </html>

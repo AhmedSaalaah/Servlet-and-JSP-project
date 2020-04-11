@@ -1,4 +1,4 @@
-package addtocart;
+package Servlets;
 
 import DataBase.ConnectDB;
 
@@ -13,11 +13,13 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 public class addToCart extends HttpServlet {
 
@@ -37,7 +39,7 @@ public class addToCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession httpSession1 = request.getSession(false);
-        if (httpSession1 != null && httpSession1.getAttribute("IsLogin").equals("true")) {
+        if (httpSession1 != null && httpSession1.getAttribute("islogin").equals("yes")) {
             try {
                 ud = (Integer) httpSession1.getAttribute("user_id");
                 try {
@@ -93,7 +95,7 @@ public class addToCart extends HttpServlet {
         } else {
             response.sendRedirect("Login.jsp");
         }
-        response.sendRedirect("homepage.html");
+        response.sendRedirect("Home.jsp");
 
     }
 

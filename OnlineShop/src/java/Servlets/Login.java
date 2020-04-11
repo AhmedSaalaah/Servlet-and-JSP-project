@@ -50,6 +50,7 @@ public class Login extends HttpServlet {
                     HttpSession session = req.getSession(true);
                     session.setAttribute("admin", "yes");
                     session.setAttribute("username", usr.username);
+                    
                     session.setAttribute("islogin", "yes");
                     resp.sendRedirect("indexProducts.jsp");
 
@@ -58,6 +59,7 @@ public class Login extends HttpServlet {
                     HttpSession session = req.getSession(true);
                     session.setAttribute("user", "yes");
                     session.setAttribute("islogin", "yes");
+                    session.setAttribute("user_id", usr.id);
                     resp.sendRedirect("Home.jsp");
                 }
 

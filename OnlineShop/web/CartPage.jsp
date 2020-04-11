@@ -1,7 +1,8 @@
 
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import=" java.sql.Connection,java.sql.DriverManager,java.sql.ResultSet,java.io.IOException,java.sql.SQLException,java.sql.Statement,java.util.logging.Level,java.util.logging.Logger,javax.servlet.ServletException,javax.servlet.http.HttpServlet, Database.*" %>
+<%@page import=" java.sql.*" %>
+<%@page import="DataBase.ConnectDB" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%!
     Integer ud;
@@ -32,7 +33,7 @@
     }
     }
    HttpSession httpSession1 = request.getSession(false);
-  if (httpSession1 != null && httpSession1.getAttribute("IsLogin").equals("true")) { %>
+  if (httpSession1 != null && httpSession1.getAttribute("islogin").equals("yes")) { %>
 <%@include file="hider2.html" %>
 <!-- breadcrumb part start-->
 <section class="breadcrumb_part">

@@ -34,6 +34,7 @@
         <servlet-name>ProductController</servlet-name>
         <servlet-class>Servlets.ProductController</servlet-class>
     </servlet>
+   
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
@@ -54,6 +55,18 @@
         <servlet-name>ProductController</servlet-name>
         <url-pattern>/ProductController</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>addToCart</servlet-name>
+        <servlet-class>Servlets.addToCart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addToCart</servlet-name>
+        <url-pattern>/addToCart</url-pattern>  <!-- This is the URL of the servlet. -->
+    </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30
