@@ -112,31 +112,44 @@
 
 
 
- <body>
+ <body style="background-color:white">
 
 
-        <form method="POST" action='ProductController' enctype="multipart/form-data">
-            <input  type="text" readonly="readonly" name="productId"  hidden
-                    value="<c:out value="${product.p_id}" />" /> <br  /> 
-            Product name : <input type="text"  name="p_name"  required name="username"
-                                  value="<c:out value="${product.p_name}" />" /> <br /> 
-            price: <input type="number" required name="price"
-                          name="price"  
-                          value="<c:out value="${product.price}" />" /> <br /> 
-            category : <input
-                type="text" name="category" required name="usename"
-                value="<c:out value="${product.category}" />" /> <br /> 
+    <form method="POST" action='ProductController'>
+        <input type="text" readonly="readonly" name="productId" hidden value="<c:out value=" ${product.p_id}" />" />
+        <br />
+        <br />
+        <div class="container">
+            <font size="8" color="black">Product name </font>
+            <input type="text" name="p_name" required name="username" value="<c:out value=" ${product.p_name}" />" />
+            <br />
+            <br />
+            <font size="10" color="black">price </font> <input style="margin-left: 190px;" type="number" required name="price" name="price"
+                value="<c:out value=" ${product.price}" />" /> <br />
+            <br />
+            <font size="8" color="black">category </font> <input style="margin-left: 110px;" type="text" name="category" required name="usename"
+                value="<c:out value=" ${product.category}" />" /> <br />
+            <br />
 
-            description: <input type="text" name="description" required name="usrname"
-                                value="<c:out value="${product.description}" />" /> <br />
+            <font size="8" color="black">description</font> <input style="margin-left: 70px;" type="text" name="description" required
+                name="usrname" value="<c:out value=" ${product.description}" />" /> <br />
+            <br />
 
-            quantity <input  type="number" name="quantity"required name="ername"
-                             value="<c:out value="${product.quantity}" />" /> <br />
-
+            <font size="8" color="black">quantity</font> <input style="margin-left: 135px;" type="number" name="quantity" required name="ername"
+                value="<c:out value=" ${product.quantity}" />" /> <br />
+            <br />
             Add Image <input  type="file" name="image" required name="imagoe"
                               value="<c:out value="${product.image}" />" /> <br />
 
-            <input   type="submit" value="Submit" />
-        </form>
-    </body>
-</html>
+
+
+        </div>
+        <div class="container2">
+            <input type="submit" value="Submit" class="Submit" />
+
+
+        </div>
+
+
+    </form>
+</body></html>
