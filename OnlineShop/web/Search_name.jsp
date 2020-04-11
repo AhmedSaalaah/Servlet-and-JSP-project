@@ -92,7 +92,9 @@
                 <img src="<% out.println(db.rs.getString("image"));%>" id="productpic">
                 <p id="productname"> <% out.println(db.rs.getString("product_name")); %></p>
                 <p id="productprice"> Price: <% out.println(db.rs.getString("price")); %></p> </a>
-            <input type="button" value="Add to cart" id="productbutton1">
+             <a href="../../src/java/Servlets/addToCart.java?product_name=<%out.println(User.elementAt(i)[1]);%>" target="_blank">
+                        <input type="button" value="Add to cart" id="productbutton1">
+                        </a>
         </div>
 
         <%
