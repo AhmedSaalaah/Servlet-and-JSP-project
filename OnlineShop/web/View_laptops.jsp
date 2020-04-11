@@ -105,9 +105,7 @@
                     <img id="productpic" src= "<% out.println(laptops.elementAt(i)[0]); %>">
                     <p id="productname"> <% out.println(laptops.elementAt(i)[1]); %> </p>
                     <p id="productprice"> <% out.println(laptops.elementAt(i)[2]); %> </p></a>
-                <a href="../../src/java/Servlets/addToCart.java?product_name=<%out.println(User.elementAt(i)[1]);%>" target="_blank">
-                        <input type="button" value="Add to cart" id="productbutton1">
-                        </a>
+                <input type="button" value="Add to cart" id="productbutton1">
             </div>
             <% }%>
     </body>

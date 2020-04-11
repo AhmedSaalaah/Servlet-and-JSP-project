@@ -87,9 +87,7 @@
         <h2 id="pname"> <% out.println(db.rs.getString("product_name")); %></h2>
         <h2 id="pprice"> Price: <% out.println(db.rs.getString("price")); %></h2>
         <h2 id="pdesc"> <% out.println(db.rs.getString("description")); %></h2>  
-         <a href="../../src/java/Servlets/addToCart.java?product_name=<%out.println(User.elementAt(i)[1]);%>" target="_blank">
-                        <input type="button" value="Add to cart" id="button">
-                        </a>
+        <input type="button" value="Add to cart" id="button">
          </div>
 
         <%
