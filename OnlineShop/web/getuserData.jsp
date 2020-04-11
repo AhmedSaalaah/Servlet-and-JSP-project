@@ -39,13 +39,59 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <style>
+        
+        table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 10px 7px;
+}
+table.blueTable tbody td {
+  font-size: 23px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 35px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+
+
+table.blueTable tfoot .links {
+  text-align: right;
+}
 
       
-        <table border=1>
-            <thead>
-                <tr>
-                    <th>User Id</th>
+
+        
+    </style>
+    <body>
+
+        
+        <table class="blueTable">
+            <thead >
+                <tr >
+                    <th>>User Id</font</th>
                     <th>username</th>
                     <th>password</th>
                     <th>Email</th>
@@ -54,18 +100,19 @@
                 </tr>
             </thead>
             <tbody>
-              
-                <c:forEach items="${users}" var="user">
-                    <tr>
+                
+                <c:forEach items="${users}" var="user" >
+                    <tr  >
                         <td><c:out value="${user.id}" /></td>
                         <td><c:out value="${user.username}" /></td>
                         <td><c:out value="${user.pass}" /></td>
                         <td><c:out value="${user.email}" /></td>
                         <td><c:out value="${user.credit_limit}" /></td>
-                        <td><a href="UserController?action=delete&userId=<c:out value="${user.id}"/>">Delete</a></td>
+                        <td   style="background-color: rgb(184, 169, 169);"><a href="UserController?action=delete&userId=<c:out value="${user.id}"/>">Delete</a></td>
 
                     </tr>
                 </c:forEach>
+                
             </tbody>
         </table>
        
