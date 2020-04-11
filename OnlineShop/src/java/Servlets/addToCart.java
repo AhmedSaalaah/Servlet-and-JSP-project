@@ -30,12 +30,8 @@ public class addToCart extends HttpServlet {
     Integer pi;
     Integer oi;
     Integer price;
- ConnectDB db = new ConnectDB();
- String pn;
-    @Override
-    public void init() throws ServletException {
- 
-    }
+    ConnectDB db = new ConnectDB();
+    String pn;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,7 +48,7 @@ public class addToCart extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 if (!result.next() == false) {
                     int i = 0;
-                    
+
                     try {
                         result = db.getUserId(ud);
                     } catch (ClassNotFoundException ex) {
@@ -93,52 +89,47 @@ public class addToCart extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(addToCart.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
+
         } else {
-            response.sendRedirect("login.html");
+            response.sendRedirect("Login.jsp");
         }
-                 response.sendRedirect("homepage.html");
+        response.sendRedirect("homepage.html");
 
     }
 
-    public void insertingIntoOrderProducts(String p)throws ClassNotFoundException, SQLException {
+    public void insertingIntoOrderProducts(String p) throws ClassNotFoundException, SQLException {
         pn = p;
-       
-                oi = db.getOrderId(ud);
-            
-       
-            result = db.getPrice(pn);
-            while (result.next()) {
-                price = result.getInt(1);
-            }
-            result = db.getProductId(pn);
-            while (result.next()) {
-                pi = result.getInt(1);
-            }
- db.updateOrderProducts(oi,pi,price);
-        
+
+        oi = db.getOrderId(ud);
+
+        result = db.getPrice(pn);
+        while (result.next()) {
+            price = result.getInt(1);
+        }
+        result = db.getProductId(pn);
+        while (result.next()) {
+            pi = result.getInt(1);
+        }
+        db.updateOrderProducts(oi, pi, price);
+
     }
-        public void fun1(String p)throws ClassNotFoundException, SQLException {
-          
-        
-            
-db.updateOrders(ud);            
+
+    public void fun1(String p) throws ClassNotFoundException, SQLException {
+
+        db.updateOrders(ud);
         pn = p;
-       
-                oi = db.getOrderId(ud);
-            
-       
-            result = db.getPrice(pn);
-            while (result.next()) {
-                price = result.getInt(1);
-            }
-                        result = db.getProductId(pn);
-            while (result.next()) {
-                pi = result.getInt(1);
-            }
- db.updateOrderProducts(oi,pi,price);
-        
-   
-    
-}
+
+        oi = db.getOrderId(ud);
+
+        result = db.getPrice(pn);
+        while (result.next()) {
+            price = result.getInt(1);
+        }
+        result = db.getProductId(pn);
+        while (result.next()) {
+            pi = result.getInt(1);
+        }
+        db.updateOrderProducts(oi, pi, price);
+
+    }
 }
