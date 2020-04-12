@@ -1,10 +1,9 @@
 
 <%@page import="java.util.Iterator"%>
+<%@page import="DataBase.ConnectDB"%>
 <%@page import="java.util.List"%>
 <%@page import=" java.sql.*" %>
-<%@page import="DataBase.ConnectDB" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%!
     Integer ud;
     Integer pi;
@@ -15,11 +14,8 @@
     Integer oldQuantity = 0;
     Integer newQuantity = 0;
     ConnectDB db = new ConnectDB();
-    
 %>
-
 <%
-   
     db.connect();
     if (request != null ) {
         if(request.getParameter("name")!=null && request.getParameter("name").equals("remove"))
@@ -37,8 +33,7 @@
     }
     }
    HttpSession httpSession1 = request.getSession(false);
-  
-  if (httpSession1 != null &&httpSession1.getAttribute("islogin").equals("yes")) { %>
+  if (httpSession1 != null && httpSession1.getAttribute("islogin").equals("yes")) { %>
 <%@include file="hider2.html" %>
 <!-- breadcrumb part start-->
 <section class="breadcrumb_part">
@@ -47,12 +42,10 @@
             <div class="col-lg-12">
                 <div class="breadcrumb_iner">
                     <h2>cart list</h2>
-                    
                 </div>
             </div>
         </div>
     </div>
-     
 </section>
 <!-- breadcrumb part end-->
 
@@ -72,10 +65,9 @@
 
                 </tr>
             </thead>
-              
             <tbody>
-              
-      
+
+
                 <%
                     
              ud = (Integer) httpSession1.getAttribute("user_id");
@@ -166,7 +158,7 @@
         </table>
     </div>
 </section>
-   <a class="btn_1 checkout_btn_1" href="/cartPage/checkout.jsp?order_id=<%=oi%>&user_id=<%=ud%>">Proceed to checkout</a>
+   <a class="btn_1 checkout_btn_1" href="/OnlineShop/checkout.jsp?order_id=<%=oi%>&user_id=<%=ud%>">Proceed to checkout</a>
 
 <!--================End Cart Area =================-->
 
