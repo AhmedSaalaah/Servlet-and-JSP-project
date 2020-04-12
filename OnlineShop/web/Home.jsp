@@ -56,7 +56,7 @@
                     <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="CartPage.jsp" > <img id="cart" src="images/icons/cart.png" ></a>
+                    <a href="CartPage.jsp" > <img id="cart" src="images/icons/cart.png"width="13" height="18" ></a>
                 </div>
 
             </div>
