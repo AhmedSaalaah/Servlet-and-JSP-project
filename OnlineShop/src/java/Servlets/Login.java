@@ -44,6 +44,7 @@ public class Login extends HttpServlet {
             PrintWriter out = resp.getWriter();
             usr.username = req.getParameter("username");
             usr.pass = req.getParameter("pass");
+            int id = conn.getUserId(usr);
 
             if (conn.checkLogin(usr)) {
                 if (conn.isadmin(usr)) {
@@ -59,7 +60,8 @@ public class Login extends HttpServlet {
                     HttpSession session = req.getSession(true);
                     session.setAttribute("user", "yes");
                     session.setAttribute("islogin", "yes");
-                    session.setAttribute("user_id", usr.id);
+                    session.setAttribute("user_id",id );
+                    session.setAttribute("username", usr.username);
                     resp.sendRedirect("Home.jsp");
                 }
 

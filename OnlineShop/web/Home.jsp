@@ -3,7 +3,8 @@
 <jsp:forward page="Login.jsp"/>
 <%}else{%>
 
-
+<%=session.getAttribute("user_id")%>
+<%=session.getAttribute("username")%>
 <!DOCTYPE html>
 <html lang="en">
     <head>

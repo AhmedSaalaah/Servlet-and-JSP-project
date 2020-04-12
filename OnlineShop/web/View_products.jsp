@@ -32,7 +32,7 @@
                         
                         <% image=User.elementAt(i)[0];%>
                         <a href="Product_Desc.jsp?name=<%out.println(User.elementAt(i)[1]);%>" target="_blank">
-                        <img id="productpic" src= "<% out.println(User.elementAt(i)[0]); %>">
+                            <img id="productpic" src= "<% out.println(User.elementAt(i)[0]); %>" width="200" height="200">
                         
                         <p id="productname"> <% out.println(User.elementAt(i)[1]); %> 
                         </p>

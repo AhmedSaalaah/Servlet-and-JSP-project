@@ -107,6 +107,23 @@ public class ConnectDB {
         }
     }
 
+    public int getUserId(User usr) throws ClassNotFoundException, SQLException {
+        int id=0;
+        connect();
+        String sql = "select user_id from users where username = ? and password = ? ";
+        pst = con.prepareStatement(sql);
+        pst.setString(1, usr.username);
+        pst.setString(2, usr.pass);
+        rs = pst.executeQuery();
+        if(rs.next()){
+        
+        id=rs.getInt(1);
+        }
+    
+            return id;
+    
+    }
+
     public void addProduct(Product pro) throws ClassNotFoundException, SQLException {
         // ProductController p = new ProductController();
         connect();

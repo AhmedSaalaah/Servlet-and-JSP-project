@@ -4,6 +4,7 @@
 <%@page import=" java.sql.*" %>
 <%@page import="DataBase.ConnectDB" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%!
     Integer ud;
     Integer pi;
@@ -14,8 +15,11 @@
     Integer oldQuantity = 0;
     Integer newQuantity = 0;
     ConnectDB db = new ConnectDB();
+    
 %>
+
 <%
+   
     db.connect();
     if (request != null ) {
         if(request.getParameter("name")!=null && request.getParameter("name").equals("remove"))
@@ -33,7 +37,8 @@
     }
     }
    HttpSession httpSession1 = request.getSession(false);
-  if (httpSession1 != null && httpSession1.getAttribute("islogin").equals("yes")) { %>
+  
+  if (httpSession1 != null ) { %>
 <%@include file="hider2.html" %>
 <!-- breadcrumb part start-->
 <section class="breadcrumb_part">
@@ -42,10 +47,12 @@
             <div class="col-lg-12">
                 <div class="breadcrumb_iner">
                     <h2>cart list</h2>
+                    
                 </div>
             </div>
         </div>
     </div>
+     
 </section>
 <!-- breadcrumb part end-->
 
@@ -65,9 +72,10 @@
 
                 </tr>
             </thead>
+              
             <tbody>
-
-
+              
+      
                 <%
                     
              ud = (Integer) httpSession1.getAttribute("user_id");
