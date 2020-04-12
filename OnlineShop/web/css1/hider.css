@@ -3,7 +3,12 @@
     margin: 0;
     box-sizing: border-box;
 }
+.aya{
+    margin-left: 30%;
+    margin-top: 30%;
+    position: absolute;
 
+}
 .container{
     width: 80%;
     margin: auto;
@@ -55,12 +60,7 @@ img.phoneIcone{
     margin: 3px;
     padding: 5px;
 }
-.aya{
-    margin-left: 30%;
-    margin-top: 30%;
-    position: absolute;
 
-}
  
  .section1 ul {
     list-style-type: none;

@@ -38,7 +38,7 @@
                         </p>
                         <p id="productprice"> <% out.println(User.elementAt(i)[2]); %> </p> </a>
                         
-                        <a href="../../OnlineShop/src/java/Servlets/addToCart.java?product_name=<%out.println(User.elementAt(i)[1]);%>" target="_blank">
+                        <a href="/OnlineShop/addToCart?product_name=<%out.println(User.elementAt(i)[1]);%>" target="_blank">
                         <input type="submit" value="Add to cart" id="productbutton1"> 
                        </a>
                         <!--<input type="button" value="Add to cart" id="productbutton1">-->

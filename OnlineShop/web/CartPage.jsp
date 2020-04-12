@@ -38,7 +38,7 @@
     }
    HttpSession httpSession1 = request.getSession(false);
   
-  if (httpSession1 != null ) { %>
+  if (httpSession1 != null &&httpSession1.getAttribute("islogin").equals("yes")) { %>
 <%@include file="hider2.html" %>
 <!-- breadcrumb part start-->
 <section class="breadcrumb_part">

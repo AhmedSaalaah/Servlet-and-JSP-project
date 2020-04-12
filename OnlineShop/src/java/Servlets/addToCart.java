@@ -42,7 +42,7 @@ public class addToCart extends HttpServlet {
         if (httpSession1 != null && httpSession1.getAttribute("islogin").equals("yes")) {
             try {
                 ud = (Integer) httpSession1.getAttribute("user_id");
-                System.out.println(ud);
+         
                 try {
                     result = db.verifyUserExist(ud);
                 } catch (ClassNotFoundException ex) {
