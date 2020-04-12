@@ -1,3 +1,4 @@
+
 <% if (session.getAttribute("user") ==null) {%>
 
 <jsp:forward page="Login.jsp"/>
@@ -13,7 +14,7 @@
         <title> Home </title>
         <link rel="stylesheet" href="css/all.min.css">
         <link rel="stylesheet" href="css/hider.css">
-
+            
     </head>
     
     <body>
@@ -54,7 +55,7 @@
                     <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-
+                    <a href="CartPage.jsp" > <img id="cart" src="images/icons/cart.png" ></a>
                 </div>
 
             </div>
@@ -66,7 +67,7 @@
                     <li><a href="View_mobiles.jsp"> Mobiles </a></li>
                     <li><a href="View_laptops.jsp"> Laptops </a></li>
                     <li><a href="Logout"> Logout </a></li>
-
+                    
 
                 </ul>
 
