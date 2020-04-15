@@ -103,7 +103,6 @@ public class ConnectDB {
             pst.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 

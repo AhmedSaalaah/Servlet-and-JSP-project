@@ -1,8 +1,8 @@
 
-<% if (session.getAttribute("user") ==null) {%>
+<% if (session.getAttribute("user") == null) {%>
 
 <jsp:forward page="Login.jsp"/>
-<%}else{%>
+<%} else {%>
 
 <%=session.getAttribute("user_id")%>
 <%=session.getAttribute("username")%>
@@ -13,11 +13,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title> Home </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="css/all.min.css">
         <link rel="stylesheet" href="css/hider.css">
-            
+
     </head>
-    
+
     <body>
         <div class="header">
             <div class="container">
@@ -68,7 +75,7 @@
                     <li><a href="View_mobiles.jsp"> Mobiles </a></li>
                     <li><a href="View_laptops.jsp"> Laptops </a></li>
                     <li><a href="Logout"> Logout </a></li>
-                    
+
 
                 </ul>
 
@@ -78,9 +85,9 @@
 
         <div style="display: inline-block; width: 70%; margin-left: 10%">
             <jsp:include page="View_products.jsp"></jsp:include>
-        </div>
+            </div>
 
 
-    </body>
-</html>
+        </body>
+    </html>
 <%}%>

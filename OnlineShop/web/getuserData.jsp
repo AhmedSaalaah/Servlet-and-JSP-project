@@ -106,7 +106,7 @@
                         <td><c:out value="${user.pass}" /></td>
                         <td><c:out value="${user.email}" /></td>
                         <td><c:out value="${user.credit_limit}" /></td>
-                        <td style="background-color: rgb(184, 169, 169);"><a href="UserController?action=delete&userId=<c:out value="${user.id}"/>">Delete</a></td>
+                        <td><a href="UserController?action=delete&userId=<c:out value="${user.id}"/>">Delete</a></td>
 
                     </tr>
                 </c:forEach>

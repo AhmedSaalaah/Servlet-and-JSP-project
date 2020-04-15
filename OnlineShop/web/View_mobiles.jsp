@@ -106,7 +106,9 @@
                         <p id="productname"> <% out.println(mobiles.elementAt(i)[1]); %> </p>
                         <p id="productprice"> <% out.println(mobiles.elementAt(i)[2]); %> </p>
                         </a>
-                        <input type="button" value="Add to cart" id="productbutton1">
+                        <a href="/OnlineShop/addToCart?product_name=<%out.println(mobiles.elementAt(i)[1]);%>" target="_blank">
+                        <input type="submit" value="Add to cart" id="productbutton1"> 
+                       </a>
                         
                         
                     </div> 

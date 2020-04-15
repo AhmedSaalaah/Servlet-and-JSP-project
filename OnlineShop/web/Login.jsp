@@ -65,7 +65,7 @@
                         </div>
                       
                         <div>
-                            <label> If you do not have please <a href="Register.html">Register</a></label>
+                            <label> If you do not have account please <a href="Register.html">Register</a></label>
                             
                         </div>
 
