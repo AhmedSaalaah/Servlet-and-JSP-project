@@ -100,20 +100,14 @@
         <!-- <div class="container3" style="background-image: url(img/123.jpg);">  -->
             <div class="section1" >
                 <ul>
-<<<<<<< HEAD
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact Us</a></li>
-=======
-                     <li><a href="Home.jsp">Home</a></li>
+                   <li><a href="Home.jsp">Home</a></li>
                     <li><a href="View_products.jsp" > Products </a></li>
                     <li><a href="View_mobiles.jsp"> Mobiles </a></li>
                     <li><a href="View_laptops.jsp"> Laptops </a></li>
                     <li><a href="CartPage.jsp" > Cart</a></li>
                     <li><a href="Logout"> Logout </a></li>
 
->>>>>>> 6bca616a21e3ee7538fc5b287f93c633a910f00b
+
                 </ul>
                
             </div>
