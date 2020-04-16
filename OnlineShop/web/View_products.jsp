@@ -41,7 +41,6 @@
                         <a href="/OnlineShop/addToCart?product_name=<%out.println(User.elementAt(i)[1]);%>" target="_blank">
                         <input type="submit" value="Add to cart" id="productbutton1"> 
                        </a>
-                        <!--<input type="button" value="Add to cart" id="productbutton1">-->
                         
                         
                     </div> 

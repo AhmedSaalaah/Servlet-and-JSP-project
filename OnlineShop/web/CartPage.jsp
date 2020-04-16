@@ -53,7 +53,7 @@
     </head>
 
     <body>
-<%@include file="hider2.html" %>
+<%--<%@include file="hider2.html" %>--%>
 <!-- breadcrumb part start-->
 <section class="breadcrumb_part">
     <div class="container">

@@ -76,7 +76,7 @@
     </head>
 
     <body>
-<%@include file="hider2.html" %>
+<%--<%@include file="hider2.html" %>--%>
 <div id="breadcrumb" class="section">
 
     <div >
