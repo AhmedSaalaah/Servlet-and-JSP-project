@@ -74,6 +74,7 @@
                     <li><a href="View_products.jsp" > Products </a></li>
                     <li><a href="View_mobiles.jsp"> Mobiles </a></li>
                     <li><a href="View_laptops.jsp"> Laptops </a></li>
+                    <li><a href="CartPage.jsp" > Cart</a></li>
                     <li><a href="Logout"> Logout </a></li>
 
 
