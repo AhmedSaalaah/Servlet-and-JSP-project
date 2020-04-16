@@ -59,11 +59,8 @@
                         <input type ="submit" value="Search"></form>
                 </div>
                 <div class="rightContent">
-                    <a href="https://www.facebook.com/profile.php?id=100006736629924"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="CartPage.jsp" > <img id="cart" src="images/icons/cart.png"width="13" height="18" ></a>
+                 
+                    <a href="CartPage.jsp" > <img id="cart" src="images/icons/cart.png"width="20" height="20" ></a>
                 </div>
 
             </div>

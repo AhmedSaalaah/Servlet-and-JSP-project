@@ -21,7 +21,7 @@ public class Database2 {
 
     private final String url =  "jdbc:postgresql://localhost:5432/onlineshop";
     private final String user = "postgres";
-    private final String password = "1234";
+    private final String password = "ahmed";
     public Connection connection = null;
     public String SQLcommand = null;
     public ResultSet rs = null;
