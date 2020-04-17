@@ -32,10 +32,12 @@
                     while (rs.next()) {
                         updated_quantity = rs.getInt(6) - rs.getInt(4);
                         db.updateProductQuantity(updated_quantity, products.get(i));
-                          response.sendRedirect("ordersuccess.jsp");
 
                      }
+                    
                 }
+                                          response.sendRedirect("ordersuccess.jsp");
+
             } else {
               response.sendRedirect("orderfailed.jsp");
 
